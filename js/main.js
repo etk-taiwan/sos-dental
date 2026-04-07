@@ -58,3 +58,25 @@ sliders.forEach(slider => {
     slider.scrollLeft = scrollLeft - walk;
   });
 });
+
+// 載入 header
+fetch('/components/header.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+
+    // ⚠️ 載入後再綁事件（重要）
+    initMenu();
+  });
+
+function initMenu(){
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+
+  if(hamburger){
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+  }
+}

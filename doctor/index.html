@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>醫師介紹 | SOS.dental</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+
+<style>
+
+/* ===== HERO ===== */
+.hero-doctor {
+  position:relative;
+  padding:120px 20px;
+  text-align:center;
+  color:#fff;
+
+  background:
+    linear-gradient(rgba(12,30,51,.85), rgba(12,30,51,.95)),
+    url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
+}
+
+/* 金色光暈 */
+.hero-doctor::before {
+  content:"";
+  position:absolute;
+  top:-100px;
+  left:50%;
+  transform:translateX(-50%);
+  width:800px;
+  height:400px;
+  background: radial-gradient(circle, rgba(195,167,104,0.25), transparent 70%);
+}
+
+/* ===== 醫師區 ===== */
+.doctor-box {
+  display:flex;
+  align-items:center;
+  gap:50px;
+  flex-wrap:wrap;
+}
+
+/* 照片 */
+.doctor-img {
+  flex:1;
+  text-align:center;
+}
+
+.doctor-img img {
+  width:260px;
+  border-radius:12px;
+  border:2px solid rgba(195,167,104,0.3);
+  box-shadow:0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* 內容 */
+.doctor-info {
+  flex:2;
+}
+
+.doctor-info h2 {
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.doctor-info p {
+  color:rgba(255,255,255,0.8);
+  margin-bottom:8px;
+}
+
+/* 標語 */
+.tagline {
+  color:#C3A768;
+  font-size:18px;
+  margin-top:10px;
+}
+
+/* 專長 */
+.skills {
+  margin-top:20px;
+}
+
+.skills span {
+  display:inline-block;
+  margin:5px;
+  padding:6px 12px;
+  border-radius:20px;
+  background:rgba(195,167,104,0.2);
+  border:1px solid rgba(195,167,104,0.4);
+}
+
+/* CTA */
+.cta {
+  text-align:center;
+  margin-top:60px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+<nav>
+<div>🦷 SOS.dental</div>
+<div>
+<a href="/">首頁</a>
+<a href="/rescue/">救援</a>
+<a href="/cases/">案例</a>
+<a href="/assessment/">評估</a>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero-doctor">
+  <h1>專業醫師團隊</h1>
+  <p>讓失敗的植牙，重新成功</p>
+</section>
+
+<!-- 醫師內容 -->
+<section class="container">
+
+<div class="doctor-box">
+
+  <!-- 照片 -->
+  <div class="doctor-img">
+    <img src="https://via.placeholder.com/300x400">
+  </div>
+
+  <!-- 內容 -->
+  <div class="doctor-info">
+
+    <h2>朱裕華 醫師</h2>
+    <p>DDS．MSD．PhD</p>
+    <p>Founder｜磐石口腔(e)學院</p>
+    <p>助理教授｜國防醫學大學</p>
+    <p>董事長｜植安生醫(股)公司</p>
+
+    <div class="tagline">
+      「讓失敗的植牙，重新成功」
+    </div>
+
+    <div class="skills">
+      <span>全口重建</span>
+      <span>高風險植牙</span>
+      <span>植牙失敗救援</span>
+      <span>數位導引手術</span>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <a href="/assessment/" class="btn btn-gold">立即免費評估</a>
+  <a href="#" class="btn btn-green">LINE 諮詢</a>
+</div>
+
+</section>
+
+<div id="header"></div>
+</body>
+</html>

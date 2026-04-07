@@ -1,16 +1,214 @@
-<form onsubmit="submitForm(event)">
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>免費評估</title>
 
-<input name="name" placeholder="姓名">
-<input name="age" placeholder="年齡">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
 
-<select name="symptom">
-<option>症狀</option>
-<option>發炎</option>
-<option>掉落</option>
-</select>
+<style>
+body {
+  margin:0;
+  font-family:'Noto Serif TC', serif;
+  background:#F4F4F4;
+}
 
-<input name="contact" placeholder="聯絡方式">
+/* 共用 */
+.section { padding:60px 20px; }
+.container { max-width:600px; margin:auto; }
+h1 { text-align:center; font-family:'Cinzel', serif; }
 
-<button class="btn btn-red">送出</button>
+/* 進度條 */
+.progress {
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:30px;
+}
+
+.step {
+  flex:1;
+  text-align:center;
+  position:relative;
+}
+
+.step::after {
+  content:'';
+  position:absolute;
+  top:12px;
+  right:-50%;
+  width:100%;
+  height:2px;
+  background:#ccc;
+}
+
+.step:last-child::after { display:none; }
+
+.circle {
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  background:#ccc;
+  margin:auto;
+}
+
+.active .circle {
+  background:#C3A768;
+}
+
+/* 表單 */
+.form-step { display:none; }
+.form-step.active { display:block; }
+
+input, select {
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:6px;
+  border:none;
+}
+
+/* 圖片預覽 */
+.preview {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.preview img {
+  width:80px;
+  height:80px;
+  object-fit:cover;
+  border-radius:6px;
+}
+
+/* 按鈕 */
+.btn {
+  padding:12px 20px;
+  border-radius:6px;
+  display:inline-block;
+  margin:5px;
+  border:none;
+  cursor:pointer;
+}
+
+.btn-red { background:#e53935; color:#fff; }
+.btn-green { background:#00c853; color:#fff; }
+
+/* CTA */
+.cta {
+  text-align:center;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<section class="section">
+<div class="container">
+
+<h1>免費評估</h1>
+
+<!-- 進度 -->
+<div class="progress">
+  <div class="step active"><div class="circle"></div><p>Step 1</p></div>
+  <div class="step"><div class="circle"></div><p>Step 2</p></div>
+  <div class="step"><div class="circle"></div><p>Step 3</p></div>
+</div>
+
+<form id="form">
+
+<!-- Step 1 -->
+<div class="form-step active">
+  <input name="name" placeholder="姓名">
+  <input name="age" placeholder="年齡">
+  <button type="button" class="btn btn-red next">下一步</button>
+</div>
+
+<!-- Step 2 -->
+<div class="form-step">
+  <select name="symptom">
+    <option>選擇症狀</option>
+    <option>發炎</option>
+    <option>掉落</option>
+    <option>疼痛</option>
+  </select>
+
+  <input type="file" id="upload" multiple>
+
+  <div class="preview"></div>
+
+  <button type="button" class="btn next">下一步</button>
+</div>
+
+<!-- Step 3 -->
+<div class="form-step">
+  <input name="contact" placeholder="聯絡方式（電話或LINE）">
+
+  <div class="cta">
+    <button class="btn btn-red">提交評估</button>
+    <a href="#" class="btn btn-green">LINE 諮詢</a>
+  </div>
+</div>
 
 </form>
+
+</div>
+</section>
+
+<script>
+
+/* Step 控制 */
+const steps = document.querySelectorAll('.form-step');
+const progress = document.querySelectorAll('.step');
+let current = 0;
+
+document.querySelectorAll('.next').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if(current < steps.length - 1){
+      steps[current].classList.remove('active');
+      progress[current].classList.remove('active');
+
+      current++;
+
+      steps[current].classList.add('active');
+      progress[current].classList.add('active');
+    }
+  });
+});
+
+/* 圖片預覽 */
+document.getElementById('upload').addEventListener('change', function() {
+  const preview = document.querySelector('.preview');
+  preview.innerHTML = "";
+
+  [...this.files].forEach(file => {
+    const reader = new FileReader();
+
+    reader.onload = e => {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      preview.appendChild(img);
+    };
+
+    reader.readAsDataURL(file);
+  });
+});
+
+/* 提交 */
+document.getElementById('form').addEventListener('submit', e => {
+  e.preventDefault();
+
+  const data = new FormData(e.target);
+
+  console.log("送出資料", Object.fromEntries(data));
+
+  alert("已送出，我們會盡快聯絡您");
+});
+
+</script>
+
+<div id="header"></div>
+</body>
+</html>

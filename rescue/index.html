@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>植牙失敗救援</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin:0;
+  font-family:'Noto Serif TC', serif;
+  background:#F4F4F4;
+}
+
+.section { padding:80px 20px; }
+.container { max-width:1200px; margin:auto; }
+
+h1,h2 { font-family:'Cinzel', serif; }
+
+/* HERO */
+.hero {
+  background:#0C1E33;
+  color:#fff;
+  text-align:center;
+  padding:100px 20px;
+}
+
+.hero h1 { font-size:40px; }
+
+/* 卡片 */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card {
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+}
+
+/* 圖解 */
+.diagram {
+  display:flex;
+  justify-content:space-between;
+  text-align:center;
+}
+
+.diagram div {
+  flex:1;
+  padding:20px;
+}
+
+/* 流程 */
+.flow {
+  display:flex;
+  justify-content:space-between;
+  text-align:center;
+}
+
+.flow div {
+  flex:1;
+  padding:20px;
+}
+
+.flow span {
+  color:#C3A768;
+  font-weight:bold;
+}
+
+/* 影片 */
+.video {
+  text-align:center;
+}
+
+.video iframe {
+  width:100%;
+  max-width:800px;
+  height:400px;
+}
+
+/* CTA */
+.cta {
+  background:#0C1E33;
+  color:#fff;
+  text-align:center;
+}
+
+.btn {
+  padding:12px 24px;
+  border-radius:6px;
+  margin:5px;
+  display:inline-block;
+}
+
+.btn-red { background:#e53935; color:#fff; }
+.btn-green { background:#00c853; color:#fff; }
+
+/* RWD */
+@media(max-width:768px){
+  .diagram, .flow { flex-direction:column; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>植牙失敗救援</h1>
+  <p>找出原因，才能真正解決</p>
+</section>
+
+<!-- 失敗類型 -->
+<section class="section container">
+  <h2>常見失敗類型</h2>
+
+  <div class="grid">
+    <div class="card">🔥 持續發炎</div>
+    <div class="card">😢 植體鬆動</div>
+    <div class="card">🦷 無法咬合</div>
+    <div class="card">⚠️ 骨質流失</div>
+  </div>
+</section>
+
+<!-- 原因解析 -->
+<section class="section container">
+  <h2>失敗原因解析</h2>
+
+  <div class="diagram">
+    <div>
+      <h3>位置錯誤</h3>
+      <p>植體角度不正確</p>
+    </div>
+
+    <div>
+      <h3>骨量不足</h3>
+      <p>未評估骨條件</p>
+    </div>
+
+    <div>
+      <h3>感染控制差</h3>
+      <p>術後清潔不佳</p>
+    </div>
+  </div>
+</section>
+
+<!-- 解決流程 -->
+<section class="section container">
+  <h2>救援流程</h2>
+
+  <div class="flow">
+    <div>診斷</div>
+    <div><span>→</span></div>
+    <div>移除問題植體</div>
+    <div><span>→</span></div>
+    <div>重建骨條件</div>
+    <div><span>→</span></div>
+    <div>重新植牙</div>
+  </div>
+</section>
+
+<!-- 案例影片 -->
+<section class="section container video">
+  <h2>真實案例</h2>
+
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+</section>
+
+<!-- CTA -->
+<section class="section cta">
+  <h2>立即評估你的狀況</h2>
+
+  <a class="btn btn-green">LINE 諮詢</a>
+  <a class="btn btn-red">免費評估</a>
+</section>
+
+<div id="header"></div>
+</body>
+</html>
