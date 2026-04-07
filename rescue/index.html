@@ -3,188 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>植牙失敗救援</title>
+<title>植牙失敗救援 | SOS.dental</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<script defer src="/js/main.js"></script>
 
 <style>
-body {
-  margin:0;
-  font-family:'Noto Serif TC', serif;
-  background:#F4F4F4;
-}
 
-.section { padding:80px 20px; }
-.container { max-width:1200px; margin:auto; }
-
-h1,h2 { font-family:'Cinzel', serif; }
-
-/* HERO */
-.hero {
-  background:#0C1E33;
-  color:#fff;
+/* ===== HERO ===== */
+.hero-rescue{
+  padding:120px 20px;
   text-align:center;
-  padding:100px 20px;
+
+  background:
+    linear-gradient(rgba(12,30,51,.85),rgba(12,30,51,.95)),
+    url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
 }
 
-.hero h1 { font-size:40px; }
+.hero-rescue h1{
+  font-size:42px;
+}
 
-/* 卡片 */
-.grid {
+/* ===== 卡片 ===== */
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
+  margin-top:30px;
 }
 
-.card {
-  background:#fff;
-  padding:20px;
+.card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(195,167,104,0.2);
+  padding:25px;
   border-radius:12px;
   text-align:center;
-  cursor:pointer;
-  transition:0.3s;
 }
 
-.card:hover {
-  transform:translateY(-5px);
-}
-
-/* 圖解 */
-.diagram {
+/* ===== 流程 ===== */
+.flow{
   display:flex;
   justify-content:space-between;
+  margin-top:40px;
   text-align:center;
 }
 
-.diagram div {
-  flex:1;
-  padding:20px;
-}
+.flow div{flex:1;}
 
-/* 流程 */
-.flow {
-  display:flex;
-  justify-content:space-between;
-  text-align:center;
-}
-
-.flow div {
-  flex:1;
-  padding:20px;
-}
-
-.flow span {
+.flow span{
   color:#C3A768;
   font-weight:bold;
 }
 
-/* 影片 */
-.video {
+/* ===== 影片 ===== */
+.video{
   text-align:center;
+  margin-top:40px;
 }
 
-.video iframe {
+.video iframe{
   width:100%;
   max-width:800px;
   height:400px;
 }
 
-/* CTA */
-.cta {
-  background:#0C1E33;
-  color:#fff;
+/* ===== CTA ===== */
+.cta{
   text-align:center;
+  margin-top:60px;
 }
 
-.btn {
-  padding:12px 24px;
-  border-radius:6px;
-  margin:5px;
-  display:inline-block;
-}
-
-.btn-red { background:#e53935; color:#fff; }
-.btn-green { background:#00c853; color:#fff; }
-
-/* RWD */
-@media(max-width:768px){
-  .diagram, .flow { flex-direction:column; }
-}
 </style>
+
 </head>
 
 <body>
 
+<!-- 共用 Header -->
+<div id="header"></div>
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero-rescue">
   <h1>植牙失敗救援</h1>
   <p>找出原因，才能真正解決</p>
+
+  <!-- 🔥 主CTA -->
+  <a href="/assessment/" class="btn btn-red">免費評估</a>
+  <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
+</section>
+
+<!-- 信任條 -->
+<section style="text-align:center;padding:20px;color:#C3A768;">
+✔ 高風險植牙專門處理　✔ 重建成功率高　✔ 數位導引精準
 </section>
 
 <!-- 失敗類型 -->
-<section class="section container">
-  <h2>常見失敗類型</h2>
+<section class="container">
+<h2>常見失敗類型</h2>
 
-  <div class="grid">
-    <div class="card">🔥 持續發炎</div>
-    <div class="card">😢 植體鬆動</div>
-    <div class="card">🦷 無法咬合</div>
-    <div class="card">⚠️ 骨質流失</div>
-  </div>
+<div class="grid">
+  <div class="card">🔥 持續發炎</div>
+  <div class="card">😢 植體鬆動</div>
+  <div class="card">🦷 無法咬合</div>
+  <div class="card">⚠️ 骨質流失</div>
+</div>
 </section>
 
 <!-- 原因解析 -->
-<section class="section container">
-  <h2>失敗原因解析</h2>
+<section class="container">
+<h2>失敗原因解析</h2>
 
-  <div class="diagram">
-    <div>
-      <h3>位置錯誤</h3>
-      <p>植體角度不正確</p>
-    </div>
-
-    <div>
-      <h3>骨量不足</h3>
-      <p>未評估骨條件</p>
-    </div>
-
-    <div>
-      <h3>感染控制差</h3>
-      <p>術後清潔不佳</p>
-    </div>
-  </div>
+<div class="grid">
+  <div class="card">位置錯誤</div>
+  <div class="card">骨量不足</div>
+  <div class="card">感染控制差</div>
+</div>
 </section>
 
 <!-- 解決流程 -->
-<section class="section container">
-  <h2>救援流程</h2>
+<section class="container">
+<h2>救援流程</h2>
 
-  <div class="flow">
-    <div>診斷</div>
-    <div><span>→</span></div>
-    <div>移除問題植體</div>
-    <div><span>→</span></div>
-    <div>重建骨條件</div>
-    <div><span>→</span></div>
-    <div>重新植牙</div>
-  </div>
+<div class="flow">
+  <div>診斷</div>
+  <div><span>→</span></div>
+  <div>移除問題植體</div>
+  <div><span>→</span></div>
+  <div>重建骨條件</div>
+  <div><span>→</span></div>
+  <div>重新植牙</div>
+</div>
 </section>
 
 <!-- 案例影片 -->
-<section class="section container video">
-  <h2>真實案例</h2>
+<section class="container video">
+<h2>真實案例</h2>
 
-  <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+<p style="color:#C3A768;">災難案例 → 完整重建</p>
+
+<iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
 </section>
 
 <!-- CTA -->
-<section class="section cta">
-  <h2>立即評估你的狀況</h2>
+<section class="cta">
+<h2>你的狀況也可以改善</h2>
 
-  <a class="btn btn-green">LINE 諮詢</a>
-  <a class="btn btn-red">免費評估</a>
+<a href="/assessment/" class="btn btn-red">立即評估</a>
+<a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
 </section>
 
-<div id="header"></div>
+<!-- 浮動CTA（成交關鍵） -->
+<div id="floating-cta"></div>
+
 </body>
 </html>

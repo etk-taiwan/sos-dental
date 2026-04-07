@@ -3,79 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>案例中心</title>
+<title>案例中心 | SOS.dental</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<script defer src="/js/main.js"></script>
 
 <style>
-body {
-  margin:0;
-  font-family:'Noto Serif TC', serif;
-  background:#F4F4F4;
-}
 
-.section { padding:80px 20px; }
-.container { max-width:1200px; margin:auto; }
-
-h1,h2 { font-family:'Cinzel', serif; }
-
-/* HERO */
-.hero {
-  background:#0C1E33;
-  color:#fff;
+/* ===== HERO ===== */
+.hero-cases{
+  padding:120px 20px;
   text-align:center;
-  padding:100px 20px;
+
+  background:
+    linear-gradient(rgba(12,30,51,.85),rgba(12,30,51,.95)),
+    url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
 }
 
-/* 篩選 */
-.filters {
+/* ===== 篩選 ===== */
+.filters{
   text-align:center;
-  margin-bottom:30px;
+  margin-top:20px;
 }
 
-.filter-btn {
+.filter-btn{
   padding:10px 20px;
   margin:5px;
   border:none;
+  border-radius:20px;
+  background:rgba(255,255,255,0.1);
+  color:#fff;
   cursor:pointer;
-  border-radius:6px;
-  background:#ddd;
 }
 
-.filter-btn.active {
-  background:#C3A768;
+.filter-btn.active{
+  background:linear-gradient(90deg,#C3A768,#E5D2A3);
   color:#000;
 }
 
-/* 案例卡 */
-.cases {
+/* ===== 案例 ===== */
+.cases{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:30px;
+  margin-top:40px;
 }
 
-/* Slider */
-.slider {
+/* ===== Slider ===== */
+.slider{
   position:relative;
   width:100%;
-  height:250px;
+  height:260px;
   overflow:hidden;
-  border-radius:10px;
+  border-radius:12px;
 }
 
-.slider img {
+.slider img{
   position:absolute;
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-.after {
+.after{
   width:50%;
   overflow:hidden;
 }
 
-.handle {
+.handle{
   position:absolute;
   top:0;
   left:50%;
@@ -85,143 +80,130 @@ h1,h2 { font-family:'Cinzel', serif; }
   cursor:ew-resize;
 }
 
+/* 標題 */
+.case-title{
+  margin-top:10px;
+  color:#C3A768;
+}
+
+.case-desc{
+  font-size:14px;
+  color:rgba(255,255,255,0.7);
+}
+
 /* CTA */
-.cta {
-  background:#0C1E33;
-  color:#fff;
+.cta{
   text-align:center;
+  margin-top:60px;
 }
-
-.btn {
-  padding:12px 24px;
-  border-radius:6px;
-  display:inline-block;
-  margin:5px;
-}
-
-.btn-green { background:#00c853; color:#fff; }
-.btn-red { background:#e53935; color:#fff; }
 
 </style>
+
 </head>
 
 <body>
 
+<div id="header"></div>
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero-cases">
   <h1>成功案例</h1>
-  <p>從失敗到重生</p>
+  <p>從失敗到重建的真實故事</p>
+
+  <a href="/assessment/" class="btn btn-red">免費評估</a>
+  <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
 </section>
 
 <!-- 篩選 -->
-<section class="section container">
+<section class="container">
 
-  <div class="filters">
-    <button class="filter-btn active" data-filter="all">全部</button>
-    <button class="filter-btn" data-filter="full">全口</button>
-    <button class="filter-btn" data-filter="single">單顎</button>
-    <button class="filter-btn" data-filter="disaster">災難案例</button>
+<div class="filters">
+  <button class="filter-btn active" data-filter="all">全部</button>
+  <button class="filter-btn" data-filter="full">全口</button>
+  <button class="filter-btn" data-filter="single">單顎</button>
+  <button class="filter-btn" data-filter="disaster">災難案例</button>
+</div>
+
+<!-- 案例 -->
+<div class="cases">
+
+<!-- CASE -->
+<div class="case" data-category="disaster">
+  <div class="slider">
+    <img src="https://via.placeholder.com/600x300?text=Before">
+    <div class="after">
+      <img src="https://via.placeholder.com/600x300?text=After">
+    </div>
+    <div class="handle"></div>
   </div>
+  <p class="case-title">災難案例 → 完整重建</p>
+  <p class="case-desc">原本失敗植牙 → 完整恢復咬合功能</p>
 
-  <div class="cases">
+  <a href="/assessment/" class="btn btn-gold">我也想評估</a>
+</div>
 
-    <!-- CASE 1 -->
-    <div class="case" data-category="full">
-      <div class="slider">
-        <img src="https://via.placeholder.com/600x300?text=Before">
-        <div class="after">
-          <img src="https://via.placeholder.com/600x300?text=After">
-        </div>
-        <div class="handle"></div>
-      </div>
-      <p>全口重建案例</p>
-    </div>
-
-    <!-- CASE 2 -->
-    <div class="case" data-category="single">
-      <div class="slider">
-        <img src="https://via.placeholder.com/600x300?text=Before">
-        <div class="after">
-          <img src="https://via.placeholder.com/600x300?text=After">
-        </div>
-        <div class="handle"></div>
-      </div>
-      <p>單顎修復案例</p>
-    </div>
-
-    <!-- CASE 3 -->
-    <div class="case" data-category="disaster">
-      <div class="slider">
-        <img src="https://via.placeholder.com/600x300?text=Before">
-        <div class="after">
-          <img src="https://via.placeholder.com/600x300?text=After">
-        </div>
-        <div class="handle"></div>
-      </div>
-      <p>災難重建案例</p>
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 <!-- CTA -->
-<section class="section cta">
-  <h2>你的案例，也能成功重建</h2>
-
-  <a class="btn btn-green">LINE 諮詢</a>
-  <a class="btn btn-red">免費評估</a>
+<section class="cta">
+  <h2>你的案例也可以成功</h2>
+  <a href="/assessment/" class="btn btn-red">立即評估</a>
 </section>
+
+<!-- 浮動CTA -->
+<div id="floating-cta"></div>
 
 <script>
 
-/* 篩選 */
-const buttons = document.querySelectorAll('.filter-btn');
-const cases = document.querySelectorAll('.case');
-
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
+/* ===== 篩選 ===== */
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
     document.querySelector('.active').classList.remove('active');
     btn.classList.add('active');
 
-    const filter = btn.dataset.filter;
+    let filter = btn.dataset.filter;
 
-    cases.forEach(c => {
-      if(filter === 'all' || c.dataset.category === filter){
-        c.style.display = 'block';
-      } else {
-        c.style.display = 'none';
+    document.querySelectorAll('.case').forEach(c=>{
+      if(filter==='all' || c.dataset.category===filter){
+        c.style.display='block';
+      }else{
+        c.style.display='none';
       }
     });
   });
 });
 
-
-/* Slider */
-document.querySelectorAll('.slider').forEach(slider => {
+/* ===== Slider（支援手機） ===== */
+document.querySelectorAll('.slider').forEach(slider=>{
   const handle = slider.querySelector('.handle');
   const after = slider.querySelector('.after');
 
-  let isDown = false;
+  let isDown=false;
 
-  handle.addEventListener('mousedown', () => isDown = true);
-  window.addEventListener('mouseup', () => isDown = false);
-
-  window.addEventListener('mousemove', e => {
-    if(!isDown) return;
-
+  const move = (x)=>{
     let rect = slider.getBoundingClientRect();
-    let x = e.clientX - rect.left;
+    let pos = x - rect.left;
+    pos = Math.max(0, Math.min(pos, rect.width));
+    after.style.width = pos + "px";
+    handle.style.left = pos + "px";
+  };
 
-    x = Math.max(0, Math.min(x, rect.width));
+  handle.addEventListener('mousedown',()=>isDown=true);
+  window.addEventListener('mouseup',()=>isDown=false);
 
-    after.style.width = x + "px";
-    handle.style.left = x + "px";
+  window.addEventListener('mousemove',e=>{
+    if(isDown) move(e.clientX);
+  });
+
+  /* 手機 */
+  slider.addEventListener('touchmove',e=>{
+    move(e.touches[0].clientX);
   });
 });
 
 </script>
 
-<div id="header"></div>
 </body>
 </html>

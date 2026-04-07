@@ -3,112 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>免費評估</title>
+<title>免費評估 | SOS.dental</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<script defer src="/js/main.js"></script>
 
 <style>
-body {
-  margin:0;
-  font-family:'Noto Serif TC', serif;
-  background:#F4F4F4;
+
+/* ===== HERO ===== */
+.hero-assess{
+  padding:100px 20px;
+  text-align:center;
+
+  background:
+    linear-gradient(rgba(12,30,51,.85),rgba(12,30,51,.95)),
+    url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
 }
 
-/* 共用 */
-.section { padding:60px 20px; }
-.container { max-width:600px; margin:auto; }
-h1 { text-align:center; font-family:'Cinzel', serif; }
-
-/* 進度條 */
-.progress {
+/* ===== 進度條 ===== */
+.progress{
   display:flex;
   justify-content:space-between;
-  margin-bottom:30px;
+  margin:30px 0;
 }
 
-.step {
+.step{
   flex:1;
   text-align:center;
   position:relative;
 }
 
-.step::after {
+.step::after{
   content:'';
   position:absolute;
   top:12px;
   right:-50%;
   width:100%;
   height:2px;
-  background:#ccc;
+  background:#444;
 }
 
-.step:last-child::after { display:none; }
+.step:last-child::after{display:none;}
 
-.circle {
+.circle{
   width:25px;
   height:25px;
   border-radius:50%;
-  background:#ccc;
+  background:#444;
   margin:auto;
 }
 
-.active .circle {
+.active .circle{
   background:#C3A768;
 }
 
-/* 表單 */
-.form-step { display:none; }
-.form-step.active { display:block; }
+/* ===== 表單 ===== */
+.form-step{display:none;}
+.form-step.active{display:block;}
 
-input, select {
+input, select{
   width:100%;
   padding:12px;
   margin-bottom:15px;
   border-radius:6px;
   border:none;
+  background:#1a3554;
+  color:#fff;
 }
 
-/* 圖片預覽 */
-.preview {
+/* ===== 圖片預覽 ===== */
+.preview{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
 }
 
-.preview img {
+.preview img{
   width:80px;
   height:80px;
   object-fit:cover;
   border-radius:6px;
 }
 
-/* 按鈕 */
-.btn {
-  padding:12px 20px;
-  border-radius:6px;
-  display:inline-block;
-  margin:5px;
-  border:none;
-  cursor:pointer;
-}
-
-.btn-red { background:#e53935; color:#fff; }
-.btn-green { background:#00c853; color:#fff; }
-
-/* CTA */
-.cta {
+/* ===== CTA ===== */
+.cta{
   text-align:center;
   margin-top:20px;
 }
+
 </style>
 </head>
 
 <body>
 
-<section class="section">
-<div class="container">
+<div id="header"></div>
 
-<h1>免費評估</h1>
+<!-- HERO -->
+<section class="hero-assess">
+  <h1>免費評估</h1>
+  <p style="color:#C3A768;">90%案例可重建，立即了解你的狀況</p>
+</section>
+
+<section class="container">
 
 <!-- 進度 -->
 <div class="progress">
@@ -148,25 +144,27 @@ input, select {
 
   <div class="cta">
     <button class="btn btn-red">提交評估</button>
-    <a href="#" class="btn btn-green">LINE 諮詢</a>
+    <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
   </div>
 </div>
 
 </form>
 
-</div>
 </section>
+
+<!-- 浮動CTA -->
+<div id="floating-cta"></div>
 
 <script>
 
-/* Step 控制 */
+/* ===== Step 控制 ===== */
 const steps = document.querySelectorAll('.form-step');
 const progress = document.querySelectorAll('.step');
 let current = 0;
 
-document.querySelectorAll('.next').forEach(btn => {
-  btn.addEventListener('click', () => {
-    if(current < steps.length - 1){
+document.querySelectorAll('.next').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    if(current < steps.length-1){
       steps[current].classList.remove('active');
       progress[current].classList.remove('active');
 
@@ -178,37 +176,34 @@ document.querySelectorAll('.next').forEach(btn => {
   });
 });
 
-/* 圖片預覽 */
-document.getElementById('upload').addEventListener('change', function() {
+/* ===== 圖片預覽 ===== */
+document.getElementById('upload').addEventListener('change',function(){
   const preview = document.querySelector('.preview');
-  preview.innerHTML = "";
+  preview.innerHTML='';
 
-  [...this.files].forEach(file => {
+  [...this.files].forEach(file=>{
     const reader = new FileReader();
-
-    reader.onload = e => {
-      const img = document.createElement('img');
-      img.src = e.target.result;
+    reader.onload=e=>{
+      const img=document.createElement('img');
+      img.src=e.target.result;
       preview.appendChild(img);
     };
-
     reader.readAsDataURL(file);
   });
 });
 
-/* 提交 */
-document.getElementById('form').addEventListener('submit', e => {
+/* ===== 表單送出（成交核心） ===== */
+document.getElementById('form').addEventListener('submit',e=>{
   e.preventDefault();
 
-  const data = new FormData(e.target);
+  alert("已收到資料，立即為您安排專人評估");
 
-  console.log("送出資料", Object.fromEntries(data));
-
-  alert("已送出，我們會盡快聯絡您");
+  setTimeout(()=>{
+    window.location.href="https://line.me/R/ti/p/@你的ID";
+  },1500);
 });
 
 </script>
 
-<div id="header"></div>
 </body>
 </html>
