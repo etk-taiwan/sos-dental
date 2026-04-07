@@ -1,10 +1,16 @@
 // ===== Header載入 =====
-fetch('/components/header.html')
-.then(res=>res.text())
-.then(data=>{
-  document.getElementById('header').innerHTML=data;
-  initMenu();
-});
+const BASE = location.pathname.split('/')[1]
+  ? '/' + location.pathname.split('/')[1] + '/'
+  : '/';
+
+fetch(BASE + 'components/header.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+    initMenu();
+  });
+
+
 
 // ===== 漢堡 =====
 function initMenu(){
@@ -30,7 +36,7 @@ function submitForm(e){
 }
 
 // ===== 載入 Floating CTA =====
-fetch('/components/floating-cta.html')
+fetch(BASE + 'components/floating-cta.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('floating-cta').innerHTML = data;
