@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOS Dental｜24H 緊急牙科</title>
+
+  <!-- SEO -->
+  <meta name="description" content="SOS Dental 提供24小時緊急牙科服務，快速止痛、專業處置，守護您的口腔健康。">
+  
+  <!-- OG -->
+  <meta property="og:title" content="SOS Dental｜24H 緊急牙科">
+  <meta property="og:description" content="牙痛急救｜立即預約｜專業醫師">
+  <meta property="og:type" content="website">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background: #072339;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+                  url('https://images.unsplash.com/photo-1588776814546-ec7e2d7f6d54');
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #AD1C69;
+      color: white;
+      padding: 12px 24px;
+      margin-top: 20px;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .services {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 250px;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+    }
+
+    .contact {
+      background: #f6f6f6;
+      text-align: center;
+    }
+
+    footer {
+      background: #072339;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* RWD */
+    @media(max-width:768px){
+      .hero h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>SOS Dental</h2>
+</header>
+
+<section class="hero">
+  <h1>24小時牙科急診</h1>
+  <p>快速止痛｜專業治療｜即刻預約</p>
+  <a href="#contact" class="btn">立即預約</a>
+</section>
+
+<section>
+  <h2>我們提供的服務</h2>
+  <div class="services">
+    <div class="card">
+      <h3>急性牙痛</h3>
+      <p>快速診斷與止痛處理</p>
+    </div>
+    <div class="card">
+      <h3>斷裂 / 外傷</h3>
+      <p>牙齒修復與緊急處置</p>
+    </div>
+    <div class="card">
+      <h3>感染腫脹</h3>
+      <p>抗感染與專業治療</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>立即聯絡我們</h2>
+  <p>電話：0900-000-000</p>
+  <a href="tel:0900000000" class="btn">一鍵撥打</a>
+</section>
+
+<footer>
+  <p>© SOS Dental</p>
+</footer>
+
+<script>
+  // 平滑滾動
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
