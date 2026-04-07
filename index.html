@@ -1,148 +1,236 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOS Dental｜24H 緊急牙科</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>植牙失敗救援 | SOS.dental</title>
 
-  <!-- SEO -->
-  <meta name="description" content="SOS Dental 提供24小時緊急牙科服務，快速止痛、專業處置，守護您的口腔健康。">
-  
-  <!-- OG -->
-  <meta property="og:title" content="SOS Dental｜24H 緊急牙科">
-  <meta property="og:description" content="牙痛急救｜立即預約｜專業醫師">
-  <meta property="og:type" content="website">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
+<style>
+body {
+  margin:0;
+  font-family: 'Noto Serif TC', serif;
+  background:#0C1E33;
+  color:#fff;
+}
 
-    header {
-      background: #072339;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+/* 共用 */
+.container {
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+  padding:60px 0;
+}
 
-    .hero {
-      background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
-                  url('https://images.unsplash.com/photo-1588776814546-ec7e2d7f6d54');
-      background-size: cover;
-      color: white;
-      text-align: center;
-      padding: 100px 20px;
-    }
+h1,h2,h3 {
+  font-family: 'Cinzel', serif;
+}
 
-    .hero h1 {
-      font-size: 42px;
-    }
+.btn {
+  display:inline-block;
+  padding:12px 24px;
+  margin:5px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-    .btn {
-      display: inline-block;
-      background: #AD1C69;
-      color: white;
-      padding: 12px 24px;
-      margin-top: 20px;
-      text-decoration: none;
-      border-radius: 6px;
-    }
+.btn-red { background:#e53935; color:#fff; }
+.btn-green { background:#00c853; color:#fff; }
+.btn-white { background:#fff; color:#000; }
 
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+/* Hero */
+.hero {
+  text-align:center;
+  padding:120px 20px;
+  background:linear-gradient(180deg,#0C1E33,#08121f);
+}
 
-    .services {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.hero h1 {
+  font-size:42px;
+  margin-bottom:10px;
+}
 
-    .card {
-      flex: 1;
-      min-width: 250px;
-      padding: 20px;
-      border: 1px solid #eee;
-      border-radius: 10px;
-    }
+.hero h2 {
+  font-size:20px;
+  color:#ccc;
+}
 
-    .contact {
-      background: #f6f6f6;
-      text-align: center;
-    }
+/* 痛點 */
+.cards {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+}
 
-    footer {
-      background: #072339;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+.card {
+  flex:1 1 200px;
+  background:#142b45;
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+}
 
-    /* RWD */
-    @media(max-width:768px){
-      .hero h1 {
-        font-size: 28px;
-      }
-    }
-  </style>
+/* 案例 */
+.cases {
+  display:flex;
+  overflow-x:auto;
+  gap:20px;
+}
+
+.case {
+  min-width:250px;
+  background:#1a3554;
+  padding:10px;
+  border-radius:10px;
+}
+
+/* CTA */
+.cta {
+  text-align:center;
+  background:#C3A768;
+  color:#000;
+  padding:60px 20px;
+}
+
+/* 表單 */
+form input, form select, form textarea {
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:5px;
+  border:none;
+}
+
+/* 浮動按鈕 */
+.floating {
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.floating a {
+  padding:12px;
+  border-radius:50%;
+  text-align:center;
+  font-size:18px;
+  color:#fff;
+}
+
+.line { background:#00c853; }
+.phone { background:#e53935; }
+.fb { background:#1877f2; }
+
+/* RWD */
+@media (max-width:768px) {
+  .hero h1 { font-size:28px; }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <h2>SOS Dental</h2>
-</header>
-
+<!-- HERO -->
 <section class="hero">
-  <h1>24小時牙科急診</h1>
-  <p>快速止痛｜專業治療｜即刻預約</p>
-  <a href="#contact" class="btn">立即預約</a>
-</section>
+  <h1>植牙失敗 即刻救援</h1>
+  <h2>你不是第一個，我們也不是第一次</h2>
 
-<section>
-  <h2>我們提供的服務</h2>
-  <div class="services">
-    <div class="card">
-      <h3>急性牙痛</h3>
-      <p>快速診斷與止痛處理</p>
-    </div>
-    <div class="card">
-      <h3>斷裂 / 外傷</h3>
-      <p>牙齒修復與緊急處置</p>
-    </div>
-    <div class="card">
-      <h3>感染腫脹</h3>
-      <p>抗感染與專業治療</p>
-    </div>
+  <div>
+    <a href="#assessment" class="btn btn-red">🚨 免費評估</a>
+    <a href="#" class="btn btn-green">📲 LINE 諮詢</a>
+    <a href="tel:0900000000" class="btn btn-white">📞 立即來電</a>
   </div>
 </section>
 
-<section class="contact" id="contact">
-  <h2>立即聯絡我們</h2>
-  <p>電話：0900-000-000</p>
-  <a href="tel:0900000000" class="btn">一鍵撥打</a>
+<!-- 影片 -->
+<section class="container">
+  <h2>真實案例重生</h2>
+  <iframe width="100%" height="400" 
+    src="https://www.youtube.com/embed/VIDEO_ID" 
+    frameborder="0" allowfullscreen>
+  </iframe>
 </section>
 
-<footer>
-  <p>© SOS Dental</p>
-</footer>
+<!-- 痛點 -->
+<section class="container">
+  <h2>你是否遇到這些問題？</h2>
+  <div class="cards">
+    <div class="card">一直發炎</div>
+    <div class="card">植牙掉了</div>
+    <div class="card">做了還是不能咬</div>
+    <div class="card">不敢再做</div>
+  </div>
+</section>
 
-<script>
-  // 平滑滾動
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-</script>
+<!-- 救援定位 -->
+<section class="container">
+  <h2>Implant Crisis Rescue Team</h2>
+  <p>專門處理失敗植牙的高難度重建團隊</p>
+</section>
+
+<!-- 醫師 -->
+<section class="container">
+  <h2>朱裕華醫師</h2>
+  <p>全口重建專家｜多年臨床經驗｜高風險案例處理</p>
+</section>
+
+<!-- 案例 -->
+<section class="container">
+  <h2>成功案例</h2>
+  <div class="cases">
+    <div class="case">Before / After</div>
+    <div class="case">Before / After</div>
+    <div class="case">Before / After</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>立即評估你的狀況</h2>
+  <a href="#" class="btn btn-green">LINE 諮詢</a>
+  <a href="tel:0900000000" class="btn btn-red">立即來電</a>
+</section>
+
+<!-- 表單 -->
+<section id="assessment" class="container">
+  <h2>免費評估</h2>
+
+  <form>
+    <input type="text" placeholder="姓名">
+    <input type="number" placeholder="年齡">
+
+    <select>
+      <option>症狀</option>
+      <option>發炎</option>
+      <option>掉落</option>
+      <option>疼痛</option>
+    </select>
+
+    <select>
+      <option>是否植牙失敗</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
+    <input type="file">
+
+    <input type="text" placeholder="聯絡方式">
+
+    <button class="btn btn-red">送出評估</button>
+  </form>
+</section>
+
+<!-- 浮動按鈕 -->
+<div class="floating">
+  <a href="#" class="line">LINE</a>
+  <a href="tel:0900000000" class="phone">☎</a>
+  <a href="#" class="fb">f</a>
+</div>
 
 </body>
 </html>
