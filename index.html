@@ -3,233 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>植牙失敗救援 | SOS.dental</title>
+<title>SOS 植牙救援</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-body {
-  margin:0;
-  font-family: 'Noto Serif TC', serif;
-  background:#0C1E33;
-  color:#fff;
-}
-
-/* 共用 */
-.container {
-  width:90%;
-  max-width:1200px;
-  margin:auto;
-  padding:60px 0;
-}
-
-h1,h2,h3 {
-  font-family: 'Cinzel', serif;
-}
-
-.btn {
-  display:inline-block;
-  padding:12px 24px;
-  margin:5px;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.btn-red { background:#e53935; color:#fff; }
-.btn-green { background:#00c853; color:#fff; }
-.btn-white { background:#fff; color:#000; }
-
-/* Hero */
-.hero {
-  text-align:center;
-  padding:120px 20px;
-  background:linear-gradient(180deg,#0C1E33,#08121f);
-}
-
-.hero h1 {
-  font-size:42px;
-  margin-bottom:10px;
-}
-
-.hero h2 {
-  font-size:20px;
-  color:#ccc;
-}
-
-/* 痛點 */
-.cards {
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-}
-
-.card {
-  flex:1 1 200px;
-  background:#142b45;
-  padding:20px;
-  border-radius:10px;
-  text-align:center;
-}
-
-/* 案例 */
-.cases {
-  display:flex;
-  overflow-x:auto;
-  gap:20px;
-}
-
-.case {
-  min-width:250px;
-  background:#1a3554;
-  padding:10px;
-  border-radius:10px;
-}
-
-/* CTA */
-.cta {
-  text-align:center;
-  background:#C3A768;
-  color:#000;
-  padding:60px 20px;
-}
-
-/* 表單 */
-form input, form select, form textarea {
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  border-radius:5px;
-  border:none;
-}
-
-/* 浮動按鈕 */
-.floating {
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.floating a {
-  padding:12px;
-  border-radius:50%;
-  text-align:center;
-  font-size:18px;
-  color:#fff;
-}
-
-.line { background:#00c853; }
-.phone { background:#e53935; }
-.fb { background:#1877f2; }
-
-/* RWD */
-@media (max-width:768px) {
-  .hero h1 { font-size:28px; }
-}
-</style>
+<link rel="stylesheet" href="/css/style.css">
+<script defer src="/js/main.js"></script>
 </head>
 
 <body>
 
+<header>
+<nav>
+<div>🦷 SOS.dental</div>
+<div>
+<a href="/">首頁</a>
+<a href="/rescue/">救援</a>
+<a href="/cases/">案例</a>
+<a href="/doctor/">醫師</a>
+<a href="/education/">知識</a>
+<a href="/assessment/">評估</a>
+<a href="/contact/">聯絡</a>
+</div>
+</nav>
+</header>
+
 <!-- HERO -->
 <section class="hero">
-  <h1>植牙失敗 即刻救援</h1>
-  <h2>你不是第一個，我們也不是第一次</h2>
+<h1>植牙失敗 即刻救援</h1>
+<p>你不是第一個，我們也不是第一次</p>
 
-  <div>
-    <a href="#assessment" class="btn btn-red">🚨 免費評估</a>
-    <a href="#" class="btn btn-green">📲 LINE 諮詢</a>
-    <a href="tel:0900000000" class="btn btn-white">📞 立即來電</a>
-  </div>
-</section>
-
-<!-- 影片 -->
-<section class="container">
-  <h2>真實案例重生</h2>
-  <iframe width="100%" height="400" 
-    src="https://www.youtube.com/embed/VIDEO_ID" 
-    frameborder="0" allowfullscreen>
-  </iframe>
+<a href="/assessment/" class="btn btn-red">免費評估</a>
+<a href="#" class="btn btn-green">LINE</a>
+<a href="tel:0900000000" class="btn btn-white">來電</a>
 </section>
 
 <!-- 痛點 -->
 <section class="container">
-  <h2>你是否遇到這些問題？</h2>
-  <div class="cards">
-    <div class="card">一直發炎</div>
-    <div class="card">植牙掉了</div>
-    <div class="card">做了還是不能咬</div>
-    <div class="card">不敢再做</div>
-  </div>
-</section>
+<h2>你是否遇到這些問題？</h2>
 
-<!-- 救援定位 -->
-<section class="container">
-  <h2>Implant Crisis Rescue Team</h2>
-  <p>專門處理失敗植牙的高難度重建團隊</p>
-</section>
-
-<!-- 醫師 -->
-<section class="container">
-  <h2>朱裕華醫師</h2>
-  <p>全口重建專家｜多年臨床經驗｜高風險案例處理</p>
+<div class="cards">
+<div class="card">一直發炎</div>
+<div class="card">植牙掉了</div>
+<div class="card">咬不動</div>
+<div class="card">不敢再做</div>
+</div>
 </section>
 
 <!-- 案例 -->
 <section class="container">
-  <h2>成功案例</h2>
-  <div class="cases">
-    <div class="case">Before / After</div>
-    <div class="case">Before / After</div>
-    <div class="case">Before / After</div>
-  </div>
+<h2>成功案例</h2>
+
+<div class="cases">
+<div class="case">Before After</div>
+<div class="case">Before After</div>
+<div class="case">Before After</div>
+</div>
 </section>
 
 <!-- CTA -->
-<section class="cta">
-  <h2>立即評估你的狀況</h2>
-  <a href="#" class="btn btn-green">LINE 諮詢</a>
-  <a href="tel:0900000000" class="btn btn-red">立即來電</a>
+<section class="container">
+<h2>立即評估</h2>
+<a href="/assessment/" class="btn btn-red">開始評估</a>
 </section>
 
-<!-- 表單 -->
-<section id="assessment" class="container">
-  <h2>免費評估</h2>
-
-  <form>
-    <input type="text" placeholder="姓名">
-    <input type="number" placeholder="年齡">
-
-    <select>
-      <option>症狀</option>
-      <option>發炎</option>
-      <option>掉落</option>
-      <option>疼痛</option>
-    </select>
-
-    <select>
-      <option>是否植牙失敗</option>
-      <option>Yes</option>
-      <option>No</option>
-    </select>
-
-    <input type="file">
-
-    <input type="text" placeholder="聯絡方式">
-
-    <button class="btn btn-red">送出評估</button>
-  </form>
-</section>
-
-<!-- 浮動按鈕 -->
+<!-- 浮動 -->
 <div class="floating">
-  <a href="#" class="line">LINE</a>
-  <a href="tel:0900000000" class="phone">☎</a>
-  <a href="#" class="fb">f</a>
+<a href="#" class="line">LINE</a>
+<a href="tel:0900000000" class="phone">☎</a>
 </div>
 
 </body>

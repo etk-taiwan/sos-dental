@@ -1,0 +1,120 @@
+* { box-sizing: border-box; }
+
+body {
+  margin:0;
+  font-family: 'Noto Serif TC', serif;
+  background:#0C1E33;
+  color:#fff;
+}
+
+.container {
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+  padding:60px 0;
+}
+
+/* Header */
+header {
+  background:#08121f;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+nav {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px;
+}
+
+nav a {
+  color:#fff;
+  margin:0 10px;
+}
+
+/* Hero */
+.hero {
+  text-align:center;
+  padding:120px 20px;
+}
+
+.hero h1 {
+  font-size:42px;
+}
+
+/* Buttons */
+.btn {
+  padding:12px 20px;
+  border-radius:6px;
+  display:inline-block;
+  margin:5px;
+}
+
+.btn-red { background:#e53935; color:#fff; }
+.btn-green { background:#00c853; color:#fff; }
+.btn-white { background:#fff; color:#000; }
+
+/* Cards */
+.cards {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.card {
+  flex:1 1 200px;
+  background:#142b45;
+  padding:20px;
+  border-radius:10px;
+}
+
+/* Case slider */
+.cases {
+  display:flex;
+  overflow-x:auto;
+  gap:20px;
+}
+
+.case {
+  min-width:250px;
+  background:#1a3554;
+  padding:10px;
+  border-radius:10px;
+}
+
+/* Form */
+form input, form select {
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:5px;
+  border:none;
+}
+
+/* Floating */
+.floating {
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.floating a {
+  padding:12px;
+  border-radius:50%;
+  text-align:center;
+  color:#fff;
+}
+
+.line { background:#00c853; }
+.phone { background:#e53935; }
+
+/* Mobile */
+@media(max-width:768px){
+  nav { flex-direction:column; }
+  .hero h1 { font-size:28px; }
+}
