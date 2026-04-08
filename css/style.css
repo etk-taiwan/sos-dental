@@ -8,7 +8,6 @@
   --danger:#e53935;
   --success:#00c853;
 
-  /* 層級系統 */
   --z-header:1200;
   --z-menu:1100;
   --z-hamburger:1300;
@@ -68,7 +67,6 @@ nav{
   transition:.4s;
 }
 
-/* ☰ → ✕ */
 .hamburger.active span:nth-child(1){
   transform:translateY(7px) rotate(45deg);
 }
@@ -84,12 +82,11 @@ nav{
   position:relative;
   padding:140px 20px;
   text-align:center;
+  z-index:1;
 
   background:
     linear-gradient(rgba(12,30,51,.85),rgba(12,30,51,.95)),
     url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
-
-  z-index:1;
 }
 
 .hero::before{
@@ -103,7 +100,7 @@ nav{
   background:radial-gradient(circle, rgba(195,167,104,.3), transparent 70%);
   filter:blur(40px);
 
-  pointer-events:none; /* 🔥 修正點 */
+  pointer-events:none;
   z-index:0;
 }
 
@@ -186,5 +183,12 @@ nav{
   .menu a{
     font-size:20px;
     margin:20px 0;
+    padding:14px 20px;
+    width:100%;
+    text-align:center;
+  }
+
+  body.menu-open{
+    overflow:hidden;
   }
 }

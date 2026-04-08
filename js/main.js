@@ -37,25 +37,22 @@ function initMenu(){
   const hamburger = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
 
-  if(!hamburger || !menu) return;
+  if(hamburger && menu){
 
-  // 🔥 強制初始化（關鍵）
-  hamburger.classList.remove('active');
-  menu.classList.remove('active');
-
-  // toggle
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    menu.classList.toggle('active');
-  });
-
-  // 點 menu 關閉
-  document.querySelectorAll('#menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      menu.classList.remove('active');
+    // toggle
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      menu.classList.toggle('active');
     });
-  });
+
+    // 🔥 點 menu 自動關閉
+    document.querySelectorAll('#menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        menu.classList.remove('active');
+      });
+    });
+  }
 }
 
 // ===== 表單送出 → LINE =====
