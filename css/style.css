@@ -18,9 +18,32 @@
 
 body {
   margin: 0;
-  font-family: 'Noto Serif TC', serif;
+  font-family: arial, 'Noto Serif TC', serif;
   background: var(--primary);
   color: #fff;
+}
+
+body,
+html {
+  overflow-x: visible;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+a {
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #0e0e0e;
+  transform: translateY(-2px);
 }
 
 .contents {
@@ -73,28 +96,50 @@ nav {
 
 .menu a {
   color: #fff;
+  font-size: 13px;
   text-decoration: none;
-  font-size: 15px;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  opacity: 0.7;
 }
 
 /* ===== 漢堡 ===== */
 .hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  margin-left: 20px;
+  position: relative;
+  width: 25px;
+  height: 20px;
   cursor: pointer;
 }
 
 .hamburger span {
-  width: 25px;
+  position: absolute;
+  left: 0;
+  width: 100%;
   height: 3px;
   background: white;
-  display: block;
+  transition: 0.3s;
 }
 
+/* 三條線位置 */
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger span:nth-child(3) {
+  bottom: 0;
+}
+
+/* 🔥 變 X（關鍵） */
 .hamburger.active span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -102,7 +147,8 @@ nav {
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 /* ===== Hero ===== */
@@ -220,6 +266,7 @@ nav {
   flex-direction: column;
   gap: 12px;
   z-index: var(--z-cta);
+
 }
 
 .floating-cta a {
@@ -246,8 +293,8 @@ nav {
   background: var(--danger);
 }
 
-/* ===== Mobile ===== */
-@media(max-width:768px) {
+/* ===== 手機、平板 ===== */
+@media(max-width:992px) {
 
   /* 漢堡出現 */
   .hamburger {

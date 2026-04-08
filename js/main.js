@@ -77,11 +77,5 @@ function track(type){
   console.log("CTA click:", type);
 }
 
-// ===== 滾動顯示 CTA =====
-window.addEventListener('scroll', () => {
-  const el = document.querySelector('.floating-cta');
-  if(!el) return;
 
-  el.style.display = window.scrollY > 300 ? 'flex' : 'none';
-});
 
