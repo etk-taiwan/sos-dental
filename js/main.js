@@ -1,13 +1,19 @@
 // ===== 自動設定 BASE（唯一保留）=====
-(function(){
+(function () {
   const base = document.getElementById('baseHref');
-  if(!base) return;
+  if (!base) return;
 
   const { hostname, pathname } = location;
 
   if (hostname.includes('github.io')) {
-    const repo = pathname.split('/')[1];
-    base.setAttribute('href', '/' + repo + '/');
+    const parts = pathname.split('/').filter(Boolean);
+
+    if (parts.length > 0) {
+      base.setAttribute('href', '/' + parts[0] + '/');
+    } else {
+      base.setAttribute('href', '/');
+    }
+
   } else {
     base.setAttribute('href', '/');
   }

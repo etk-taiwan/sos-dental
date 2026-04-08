@@ -1,210 +1,221 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="植牙失敗、發炎、掉落？專業醫師救援，立即免費評估">
-<title>免費評估 | SOS.dental</title>
-<base id="baseHref">
-<link rel="stylesheet" href="../css/style.css">
-<script defer src="../js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="植牙失敗、發炎、掉落？專業醫師救援，立即免費評估">
+  <title>免費評估 | SOS.dental</title>
+  <base id="baseHref">
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="../js/main.js"></script>
 
-<style>
+  <style>
+    /* ===== HERO ===== */
+    .hero-assess {
+      padding: 100px 20px;
+      text-align: center;
 
-/* ===== HERO ===== */
-.hero-assess{
-  padding:100px 20px;
-  text-align:center;
+      background:
+        linear-gradient(rgba(12, 30, 51, .85), rgba(12, 30, 51, .95)),
+        url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
+    }
 
-  background:
-    linear-gradient(rgba(12,30,51,.85),rgba(12,30,51,.95)),
-    url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
-}
+    /* ===== 進度條 ===== */
+    .progress {
+      display: flex;
+      justify-content: space-between;
+      margin: 30px 0;
+    }
 
-/* ===== 進度條 ===== */
-.progress{
-  display:flex;
-  justify-content:space-between;
-  margin:30px 0;
-}
+    .step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+    }
 
-.step{
-  flex:1;
-  text-align:center;
-  position:relative;
-}
+    .step::after {
+      content: '';
+      position: absolute;
+      top: 12px;
+      right: -50%;
+      width: 100%;
+      height: 2px;
+      background: #444;
+    }
 
-.step::after{
-  content:'';
-  position:absolute;
-  top:12px;
-  right:-50%;
-  width:100%;
-  height:2px;
-  background:#444;
-}
+    .step:last-child::after {
+      display: none;
+    }
 
-.step:last-child::after{display:none;}
+    .circle {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #444;
+      margin: auto;
+    }
 
-.circle{
-  width:25px;
-  height:25px;
-  border-radius:50%;
-  background:#444;
-  margin:auto;
-}
+    .active .circle {
+      background: #C3A768;
+    }
 
-.active .circle{
-  background:#C3A768;
-}
+    /* ===== 表單 ===== */
+    .form-step {
+      display: none;
+    }
 
-/* ===== 表單 ===== */
-.form-step{display:none;}
-.form-step.active{display:block;}
+    .form-step.active {
+      display: block;
+    }
 
-input, select{
-  width:100%;
-  padding:12px;
-  margin-bottom:15px;
-  border-radius:6px;
-  border:none;
-  background:#1a3554;
-  color:#fff;
-}
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: none;
+      background: #1a3554;
+      color: #fff;
+    }
 
-/* ===== 圖片預覽 ===== */
-.preview{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
+    /* ===== 圖片預覽 ===== */
+    .preview {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-.preview img{
-  width:80px;
-  height:80px;
-  object-fit:cover;
-  border-radius:6px;
-}
-
-/* ===== CTA ===== */
-.cta{
-  text-align:center;
-  margin-top:20px;
-}
-
-</style>
+    .preview img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="header"></div>
+  <div id="header"></div>
 
-<!-- HERO -->
-<section class="hero-assess">
-  <h1>免費評估</h1>
-  <p style="color:#C3A768;">90%案例可重建，立即了解你的狀況</p>
-</section>
+  <!-- HERO -->
+  <section class="hero-assess">
+    <h1>免費評估</h1>
+    <p style="color:#C3A768;">90%案例可重建，立即了解你的狀況</p>
+  </section>
 
-<section class="container">
 
-<!-- 進度 -->
-<div class="progress">
-  <div class="step active"><div class="circle"></div><p>Step 1</p></div>
-  <div class="step"><div class="circle"></div><p>Step 2</p></div>
-  <div class="step"><div class="circle"></div><p>Step 3</p></div>
-</div>
+  <section class="contents">
 
-<form id="form">
+    <!-- 進度 -->
+    <div class="progress">
+      <div class="step active">
+        <div class="circle"></div>
+        <p>Step 1</p>
+      </div>
+      <div class="step">
+        <div class="circle"></div>
+        <p>Step 2</p>
+      </div>
+      <div class="step">
+        <div class="circle"></div>
+        <p>Step 3</p>
+      </div>
+    </div>
 
-<!-- Step 1 -->
-<div class="form-step active">
-  <input name="name" placeholder="姓名">
-  <input name="age" placeholder="年齡">
-  <button type="button" class="btn btn-red next">下一步</button>
-</div>
+    <form id="form">
 
-<!-- Step 2 -->
-<div class="form-step">
-  <select name="symptom">
-    <option>選擇症狀</option>
-    <option>發炎</option>
-    <option>掉落</option>
-    <option>疼痛</option>
-  </select>
+      <!-- Step 1 -->
+      <div class="form-step active">
+        <input name="name" placeholder="姓名">
+        <input name="age" placeholder="年齡">
+        <button type="button" class="btn btn-red next">下一步</button>
+      </div>
 
-  <input type="file" id="upload" multiple>
+      <!-- Step 2 -->
+      <div class="form-step">
+        <select name="symptom">
+          <option>選擇症狀</option>
+          <option>發炎</option>
+          <option>掉落</option>
+          <option>疼痛</option>
+        </select>
 
-  <div class="preview"></div>
+        <input type="file" id="upload" multiple>
 
-  <button type="button" class="btn next">下一步</button>
-</div>
+        <div class="preview"></div>
 
-<!-- Step 3 -->
-<div class="form-step">
-  <input name="contact" placeholder="聯絡方式（電話或LINE）">
+        <button type="button" class="btn next">下一步</button>
+      </div>
 
-  <div class="cta">
-    <button class="btn btn-red">提交評估</button>
-    <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
-  </div>
-</div>
+      <!-- Step 3 -->
+      <div class="form-step">
+        <input name="contact" placeholder="聯絡方式（電話或LINE）">
 
-</form>
+        <div class="cta">
+          <button class="btn btn-red">提交評估</button>
+          <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
+        </div>
+      </div>
 
-</section>
+    </form>
 
-<!-- 浮動CTA -->
-<div id="floating-cta"></div>
+  </section>
+  <!-- 浮動CTA -->
+  <div id="floating-cta"></div>
 
-<script>
+  <script>
 
-/* ===== Step 控制 ===== */
-const steps = document.querySelectorAll('.form-step');
-const progress = document.querySelectorAll('.step');
-let current = 0;
+    /* ===== Step 控制 ===== */
+    const steps = document.querySelectorAll('.form-step');
+    const progress = document.querySelectorAll('.step');
+    let current = 0;
 
-document.querySelectorAll('.next').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    if(current < steps.length-1){
-      steps[current].classList.remove('active');
-      progress[current].classList.remove('active');
+    document.querySelectorAll('.next').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (current < steps.length - 1) {
+          steps[current].classList.remove('active');
+          progress[current].classList.remove('active');
 
-      current++;
+          current++;
 
-      steps[current].classList.add('active');
-      progress[current].classList.add('active');
-    }
-  });
-});
+          steps[current].classList.add('active');
+          progress[current].classList.add('active');
+        }
+      });
+    });
 
-/* ===== 圖片預覽 ===== */
-document.getElementById('upload').addEventListener('change',function(){
-  const preview = document.querySelector('.preview');
-  preview.innerHTML='';
+    /* ===== 圖片預覽 ===== */
+    document.getElementById('upload').addEventListener('change', function () {
+      const preview = document.querySelector('.preview');
+      preview.innerHTML = '';
 
-  [...this.files].forEach(file=>{
-    const reader = new FileReader();
-    reader.onload=e=>{
-      const img=document.createElement('img');
-      img.src=e.target.result;
-      preview.appendChild(img);
-    };
-    reader.readAsDataURL(file);
-  });
-});
+      [...this.files].forEach(file => {
+        const reader = new FileReader();
+        reader.onload = e => {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          preview.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
 
-/* ===== 表單送出（成交核心） ===== */
-document.getElementById('form').addEventListener('submit',e=>{
-  e.preventDefault();
+    /* ===== 表單送出（成交核心） ===== */
+    document.getElementById('form').addEventListener('submit', e => {
+      e.preventDefault();
 
-  alert("已收到資料，立即為您安排專人評估");
+      alert("已收到資料，立即為您安排專人評估");
 
-  setTimeout(()=>{
-    window.location.href="https://line.me/R/ti/p/@你的ID";
-  },1500);
-});
+      setTimeout(() => {
+        window.location.href = "https://line.me/R/ti/p/@你的ID";
+      }, 1500);
+    });
 
-</script>
+  </script>
 
 </body>
+
 </html>

@@ -1,121 +1,115 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="植牙失敗、發炎、掉落？專業醫師救援，立即免費評估">
-<title>聯絡我們 | SOS.dental</title>
-<base id="baseHref">
-<link rel="stylesheet" href="../css/style.css">
-<script defer src="../js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="植牙失敗、發炎、掉落？專業醫師救援，立即免費評估">
+  <title>聯絡我們 | SOS.dental</title>
+  <base id="baseHref">
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="../js/main.js"></script>
 
-<style>
+  <style>
+    /* ===== HERO ===== */
+    .hero-contact {
+      padding: 120px 20px;
+      text-align: center;
 
-/* ===== HERO ===== */
-.hero-contact{
-  padding:120px 20px;
-  text-align:center;
+      background:
+        linear-gradient(rgba(12, 30, 51, .85), rgba(12, 30, 51, .95)),
+        url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
+    }
 
-  background:
-    linear-gradient(rgba(12,30,51,.85),rgba(12,30,51,.95)),
-    url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
-}
+    /* ===== 聯絡卡 ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
 
-/* ===== 聯絡卡 ===== */
-.contact-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-  margin-top:40px;
-}
+    .contact-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(195, 167, 104, 0.2);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      transition: 0.3s;
+    }
 
-.contact-card{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(195,167,104,0.2);
-  padding:30px;
-  border-radius:12px;
-  text-align:center;
-  transition:0.3s;
-}
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
 
-.contact-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.3);
-}
+    /* 地圖 */
+    .map {
+      margin-top: 60px;
+    }
 
-/* 地圖 */
-.map{
-  margin-top:60px;
-}
-
-.map iframe{
-  width:100%;
-  height:400px;
-  border-radius:12px;
-  border:none;
-}
-
-/* CTA */
-.cta{
-  text-align:center;
-  margin-top:40px;
-}
-
-</style>
+    .map iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 12px;
+      border: none;
+    }
+  </style>
 
 </head>
 
 <body>
 
-<div id="header"></div>
+  <div id="header"></div>
 
-<!-- HERO -->
-<section class="hero-contact">
-  <h1>聯絡我們</h1>
-  <p>立即諮詢，讓專業團隊為你評估</p>
+  <!-- HERO -->
+  <section class="hero-contact">
+    <h1>聯絡我們</h1>
+    <p>立即諮詢，讓專業團隊為你評估</p>
 
-  <a href="/assessment/" class="btn btn-red">免費評估</a>
-  <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
-</section>
+    <a href="/assessment/" class="btn btn-red">免費評估</a>
+    <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
+  </section>
 
-<!-- 聯絡資訊 -->
-<section class="container">
+  <!-- 聯絡資訊 -->
+  <section class="contents">
 
-<div class="contact-grid">
+    <div class="contact-grid">
 
-  <!-- 電話 -->
-  <div class="contact-card">
-    <h3>📞 電話</h3>
-    <p>0900-000-000</p>
-    <a href="tel:0900000000" class="btn btn-gold">立即撥打</a>
-  </div>
+      <!-- 電話 -->
+      <div class="contact-card">
+        <h3>📞 電話</h3>
+        <p>0900-000-000</p>
+        <a href="tel:0900000000" class="btn btn-gold">立即撥打</a>
+      </div>
 
-  <!-- LINE -->
-  <div class="contact-card">
-    <h3>💬 LINE</h3>
-    <p>@yourline</p>
-    <a href="https://line.me/R/ti/p/@你的ID" target="_blank" class="btn btn-green">
-      加入LINE
-    </a>
-  </div>
+      <!-- LINE -->
+      <div class="contact-card">
+        <h3>💬 LINE</h3>
+        <p>@yourline</p>
+        <a href="https://line.me/R/ti/p/@你的ID" target="_blank" class="btn btn-green">
+          加入LINE
+        </a>
+      </div>
 
-</div>
+    </div>
 
-<!-- Google Map -->
-<div class="map">
-  <iframe src="https://www.google.com/maps?q=Taipei&output=embed"></iframe>
-</div>
+    <!-- Google Map -->
+    <div class="map">
+      <iframe src="https://www.google.com/maps?q=Taipei&output=embed"></iframe>
+    </div>
 
-<!-- CTA -->
-<div class="cta">
-  <h2>不確定是否適合？</h2>
-  <a href="/assessment/" class="btn btn-red">免費評估</a>
-</div>
+    <!-- CTA -->
+    <div class="cta">
+      <h2>不確定是否適合？</h2>
+      <a href="/assessment/" class="btn btn-red">免費評估</a>
+    </div>
 
-</section>
+  </section>
 
-<!-- 浮動CTA -->
-<div id="floating-cta"></div>
+  <!-- 浮動CTA -->
+  <div id="floating-cta"></div>
 
 </body>
+
 </html>

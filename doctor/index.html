@@ -1,188 +1,182 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="植牙失敗、發炎、掉落？專業醫師救援，立即免費評估">
-<title>醫師介紹 | SOS.dental</title>
-<base id="baseHref">
-<link rel="stylesheet" href="../css/style.css">
-<script defer src="../js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="植牙失敗、發炎、掉落？專業醫師救援，立即免費評估">
+  <title>醫師介紹 | SOS.dental</title>
+  <base id="baseHref">
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="../js/main.js"></script>
 
-<style>
+  <style>
+    /* ===== HERO ===== */
+    .hero-doctor {
+      padding: 120px 20px;
+      text-align: center;
 
-/* ===== HERO ===== */
-.hero-doctor{
-  padding:120px 20px;
-  text-align:center;
+      background:
+        linear-gradient(rgba(12, 30, 51, .85), rgba(12, 30, 51, .95)),
+        url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
+    }
 
-  background:
-    linear-gradient(rgba(12,30,51,.85),rgba(12,30,51,.95)),
-    url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
-}
+    .hero-doctor h1 {
+      font-size: 42px;
+    }
 
-.hero-doctor h1{
-  font-size:42px;
-}
+    /* ===== 醫師區 ===== */
+    .doctor-box {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
 
-/* ===== 醫師區 ===== */
-.doctor-box{
-  display:flex;
-  align-items:center;
-  gap:60px;
-  flex-wrap:wrap;
-  margin-top:40px;
-}
+    /* 照片 */
+    .doctor-img {
+      flex: 1;
+      text-align: center;
+    }
 
-/* 照片 */
-.doctor-img{
-  flex:1;
-  text-align:center;
-}
+    .doctor-img img {
+      width: 280px;
+      border-radius: 12px;
+      border: 2px solid rgba(195, 167, 104, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
 
-.doctor-img img{
-  width:280px;
-  border-radius:12px;
-  border:2px solid rgba(195,167,104,0.3);
-  box-shadow:0 20px 60px rgba(0,0,0,0.4);
-}
+    /* 資訊 */
+    .doctor-info {
+      flex: 2;
+    }
 
-/* 資訊 */
-.doctor-info{
-  flex:2;
-}
+    .doctor-info h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
 
-.doctor-info h2{
-  font-size:32px;
-  margin-bottom:10px;
-}
+    .doctor-info p {
+      margin-bottom: 8px;
+      color: rgba(255, 255, 255, 0.85);
+    }
 
-.doctor-info p{
-  margin-bottom:8px;
-  color:rgba(255,255,255,0.85);
-}
+    /* 標語 */
+    .tagline {
+      margin-top: 15px;
+      color: #C3A768;
+      font-size: 18px;
+    }
 
-/* 標語 */
-.tagline{
-  margin-top:15px;
-  color:#C3A768;
-  font-size:18px;
-}
+    /* 專長 */
+    .skills {
+      margin-top: 20px;
+    }
 
-/* 專長 */
-.skills{
-  margin-top:20px;
-}
+    .skills span {
+      display: inline-block;
+      margin: 6px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: rgba(195, 167, 104, 0.15);
+      border: 1px solid rgba(195, 167, 104, 0.3);
+    }
 
-.skills span{
-  display:inline-block;
-  margin:6px;
-  padding:6px 12px;
-  border-radius:20px;
-  background:rgba(195,167,104,0.15);
-  border:1px solid rgba(195,167,104,0.3);
-}
+    /* 信任數據 */
+    .stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 30px;
+    }
 
-/* 信任數據 */
-.stats{
-  display:flex;
-  gap:40px;
-  margin-top:30px;
-}
+    .stats div {
+      text-align: center;
+    }
 
-.stats div{
-  text-align:center;
-}
-
-.stats h3{
-  color:#C3A768;
-  font-size:26px;
-}
-
-/* CTA */
-.cta{
-  text-align:center;
-  margin-top:60px;
-}
-
-</style>
+    .stats h3 {
+      color: #C3A768;
+      font-size: 26px;
+    }
+  </style>
 
 </head>
 
 <body>
 
-<div id="header"></div>
+  <div id="header"></div>
 
-<!-- HERO -->
-<section class="hero-doctor">
-  <h1>專業醫師團隊</h1>
-  <p>讓失敗的植牙，重新成功</p>
+  <!-- HERO -->
+  <section class="hero-doctor">
+    <h1>專業醫師團隊</h1>
+    <p>讓失敗的植牙，重新成功</p>
 
-  <a href="/assessment/" class="btn btn-red">免費評估</a>
-  <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
-</section>
+    <a href="/assessment/" class="btn btn-red">免費評估</a>
+    <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
+  </section>
 
-<!-- 醫師內容 -->
-<section class="container">
+  <!-- 醫師內容 -->
+  <section class="contents">
 
-<div class="doctor-box">
+    <div class="doctor-box">
 
-  <!-- 照片 -->
-  <div class="doctor-img">
-    <img src="https://via.placeholder.com/300x400">
-  </div>
+      <!-- 照片 -->
+      <div class="doctor-img">
+        <img src="https://via.placeholder.com/300x400">
+      </div>
 
-  <!-- 資訊 -->
-  <div class="doctor-info">
+      <!-- 資訊 -->
+      <div class="doctor-info">
 
-    <h2>朱裕華 醫師</h2>
-    <p>DDS．MSD．PhD</p>
-    <p>Founder｜磐石口腔(e)學院</p>
-    <p>助理教授｜國防醫學大學</p>
-    <p>董事長｜植安生醫(股)公司</p>
+        <h2>朱裕華 醫師</h2>
+        <p>DDS．MSD．PhD</p>
+        <p>Founder｜磐石口腔(e)學院</p>
+        <p>助理教授｜國防醫學大學</p>
+        <p>董事長｜植安生醫(股)公司</p>
 
-    <div class="tagline">
-      「讓失敗的植牙，重新成功」
+        <div class="tagline">
+          「讓失敗的植牙，重新成功」
+        </div>
+
+        <!-- 專長 -->
+        <div class="skills">
+          <span>全口重建</span>
+          <span>高風險植牙</span>
+          <span>植牙失敗救援</span>
+          <span>數位導引手術</span>
+        </div>
+
+        <!-- 信任數據 -->
+        <div class="stats">
+          <div>
+            <h3>1000+</h3>
+            <p>成功案例</p>
+          </div>
+          <div>
+            <h3>20+</h3>
+            <p>臨床經驗</p>
+          </div>
+          <div>
+            <h3>高成功率</h3>
+            <p>重建成果</p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
-    <!-- 專長 -->
-    <div class="skills">
-      <span>全口重建</span>
-      <span>高風險植牙</span>
-      <span>植牙失敗救援</span>
-      <span>數位導引手術</span>
+    <!-- CTA -->
+    <div class="cta">
+      <a href="/assessment/" class="btn btn-gold">立即免費評估</a>
+      <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
     </div>
 
-    <!-- 信任數據 -->
-    <div class="stats">
-      <div>
-        <h3>1000+</h3>
-        <p>成功案例</p>
-      </div>
-      <div>
-        <h3>20+</h3>
-        <p>臨床經驗</p>
-      </div>
-      <div>
-        <h3>高成功率</h3>
-        <p>重建成果</p>
-      </div>
-    </div>
+  </section>
 
-  </div>
-
-</div>
-
-<!-- CTA -->
-<div class="cta">
-  <a href="/assessment/" class="btn btn-gold">立即免費評估</a>
-  <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
-</div>
-
-</section>
-
-<!-- 浮動CTA -->
-<div id="floating-cta"></div>
+  <!-- 浮動CTA -->
+  <div id="floating-cta"></div>
 
 </body>
+
 </html>

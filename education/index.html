@@ -1,189 +1,183 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="植牙失敗、發炎、掉落？專業醫師救援，立即免費評估">
-<title>植牙知識 | SOS.dental</title>
-<base id="baseHref">
-<link rel="stylesheet" href="../css/style.css">
-<script defer src="../js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="植牙失敗、發炎、掉落？專業醫師救援，立即免費評估">
+  <title>植牙知識 | SOS.dental</title>
+  <base id="baseHref">
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="../js/main.js"></script>
 
-<style>
+  <style>
+    /* ===== HERO ===== */
+    .hero-edu {
+      padding: 120px 20px;
+      text-align: center;
 
-/* ===== HERO ===== */
-.hero-edu{
-  padding:120px 20px;
-  text-align:center;
+      background:
+        linear-gradient(rgba(12, 30, 51, .85), rgba(12, 30, 51, .95)),
+        url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
+    }
 
-  background:
-    linear-gradient(rgba(12,30,51,.85),rgba(12,30,51,.95)),
-    url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
-}
+    .hero-edu h1 {
+      font-size: 42px;
+    }
 
-.hero-edu h1{
-  font-size:42px;
-}
+    /* ===== 分類 ===== */
+    .categories {
+      text-align: center;
+      margin-top: 30px;
+    }
 
-/* ===== 分類 ===== */
-.categories{
-  text-align:center;
-  margin-top:30px;
-}
+    .categories button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      cursor: pointer;
+    }
 
-.categories button{
-  padding:10px 20px;
-  margin:5px;
-  border:none;
-  border-radius:20px;
-  background:rgba(255,255,255,0.1);
-  color:#fff;
-  cursor:pointer;
-}
+    .categories .active {
+      background: linear-gradient(90deg, #C3A768, #E5D2A3);
+      color: #000;
+    }
 
-.categories .active{
-  background:linear-gradient(90deg,#C3A768,#E5D2A3);
-  color:#000;
-}
+    /* ===== 文章卡 ===== */
+    .articles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
 
-/* ===== 文章卡 ===== */
-.articles{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-  margin-top:40px;
-}
+    .article {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(195, 167, 104, 0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
 
-.article{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(195,167,104,0.2);
-  border-radius:12px;
-  overflow:hidden;
-  transition:0.3s;
-}
+    .article:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
 
-.article:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.3);
-}
+    .article img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
 
-.article img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
+    .article-content {
+      padding: 20px;
+    }
 
-.article-content{
-  padding:20px;
-}
+    .article-content h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
 
-.article-content h3{
-  font-size:18px;
-  margin-bottom:10px;
-}
-
-.article-content p{
-  font-size:14px;
-  color:rgba(255,255,255,0.75);
-}
-
-/* CTA */
-.cta{
-  text-align:center;
-  margin-top:60px;
-}
-
-</style>
+    .article-content p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.75);
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="header"></div>
+  <div id="header"></div>
 
-<!-- HERO -->
-<section class="hero-edu">
-  <h1>植牙知識中心</h1>
-  <p>專業解析，讓你做出正確選擇</p>
+  <!-- HERO -->
+  <section class="hero-edu">
+    <h1>植牙知識中心</h1>
+    <p>專業解析，讓你做出正確選擇</p>
 
-  <a href="/assessment/" class="btn btn-red">免費評估</a>
-  <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
-</section>
+    <a href="/assessment/" class="btn btn-red">免費評估</a>
+    <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
+  </section>
 
-<!-- 分類 -->
-<section class="container">
+  <!-- 分類 -->
+  <section class="contents">
 
-<div class="categories">
-  <button class="active" data-cat="all">全部</button>
-  <button data-cat="failure">失敗原因</button>
-  <button data-cat="treatment">治療方式</button>
-  <button data-cat="risk">風險解析</button>
-</div>
-
-<!-- 文章 -->
-<div class="articles">
-
-  <div class="article" data-cat="failure">
-    <img src="https://via.placeholder.com/400x200">
-    <div class="article-content">
-      <h3>植牙為什麼會失敗？</h3>
-      <p>解析常見失敗原因與預防方式</p>
-      <a href="/assessment/" class="btn btn-gold">立即評估</a>
+    <div class="categories">
+      <button class="active" data-cat="all">全部</button>
+      <button data-cat="failure">失敗原因</button>
+      <button data-cat="treatment">治療方式</button>
+      <button data-cat="risk">風險解析</button>
     </div>
-  </div>
 
-  <div class="article" data-cat="treatment">
-    <img src="https://via.placeholder.com/400x200">
-    <div class="article-content">
-      <h3>植牙重做完整流程</h3>
-      <p>從移除到重建的完整步驟</p>
-      <a href="/assessment/" class="btn btn-gold">立即評估</a>
+    <!-- 文章 -->
+    <div class="articles">
+
+      <div class="article" data-cat="failure">
+        <img src="https://via.placeholder.com/400x200">
+        <div class="article-content">
+          <h3>植牙為什麼會失敗？</h3>
+          <p>解析常見失敗原因與預防方式</p>
+          <a href="/assessment/" class="btn btn-gold">立即評估</a>
+        </div>
+      </div>
+
+      <div class="article" data-cat="treatment">
+        <img src="https://via.placeholder.com/400x200">
+        <div class="article-content">
+          <h3>植牙重做完整流程</h3>
+          <p>從移除到重建的完整步驟</p>
+          <a href="/assessment/" class="btn btn-gold">立即評估</a>
+        </div>
+      </div>
+
+      <div class="article" data-cat="risk">
+        <img src="https://via.placeholder.com/400x200">
+        <div class="article-content">
+          <h3>骨質不足可以植牙嗎？</h3>
+          <p>補骨與骨增量技術解析</p>
+          <a href="/assessment/" class="btn btn-gold">立即評估</a>
+        </div>
+      </div>
+
     </div>
-  </div>
 
-  <div class="article" data-cat="risk">
-    <img src="https://via.placeholder.com/400x200">
-    <div class="article-content">
-      <h3>骨質不足可以植牙嗎？</h3>
-      <p>補骨與骨增量技術解析</p>
-      <a href="/assessment/" class="btn btn-gold">立即評估</a>
-    </div>
-  </div>
+  </section>
 
-</div>
+  <!-- CTA -->
+  <section class="cta">
+    <h2>還不確定你的狀況？</h2>
+    <a href="/assessment/" class="btn btn-red">免費評估</a>
+    <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
+  </section>
 
-</section>
+  <!-- 浮動CTA -->
+  <div id="floating-cta"></div>
 
-<!-- CTA -->
-<section class="cta">
-  <h2>還不確定你的狀況？</h2>
-  <a href="/assessment/" class="btn btn-red">免費評估</a>
-  <a href="https://line.me/R/ti/p/@你的ID" class="btn btn-green">LINE 諮詢</a>
-</section>
+  <script>
 
-<!-- 浮動CTA -->
-<div id="floating-cta"></div>
+    /* 分類篩選 */
+    document.querySelectorAll('.categories button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('.active').classList.remove('active');
+        btn.classList.add('active');
 
-<script>
+        let cat = btn.dataset.cat;
 
-/* 分類篩選 */
-document.querySelectorAll('.categories button').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelector('.active').classList.remove('active');
-    btn.classList.add('active');
-
-    let cat = btn.dataset.cat;
-
-    document.querySelectorAll('.article').forEach(a=>{
-      if(cat==='all' || a.dataset.cat===cat){
-        a.style.display='block';
-      }else{
-        a.style.display='none';
-      }
+        document.querySelectorAll('.article').forEach(a => {
+          if (cat === 'all' || a.dataset.cat === cat) {
+            a.style.display = 'block';
+          } else {
+            a.style.display = 'none';
+          }
+        });
+      });
     });
-  });
-});
 
-</script>
+  </script>
 
 </body>
+
 </html>
