@@ -107,6 +107,7 @@ nav {
 
 /* ===== 漢堡 ===== */
 .hamburger {
+  display: none;
   position: relative;
   width: 25px;
   height: 20px;
@@ -159,8 +160,8 @@ nav {
   z-index: 1;
   overflow: hidden;
   background:
-    linear-gradient(rgba(12, 30, 51, .85), rgba(12, 30, 51, .95)),
-    url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
+    linear-gradient(rgba(7, 35, 57, .92), rgba(7, 35, 57, .75)),
+    url('../images/hero-bg.png') top/cover no-repeat;
 }
 
 .hero::before {
@@ -176,6 +177,29 @@ nav {
 
   pointer-events: none;
   z-index: -1;
+}
+
+/* canvas層 */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+#bgCanvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* 內容 */
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-rescue {

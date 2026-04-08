@@ -12,18 +12,27 @@
 
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/main.js"></script>
+    <script defer src="js/bgCanvas.js"></script>
 </head>
 
 <body>
 
     <div id="header"></div>
     <!-- HERO -->
+    <!-- 🔥 背景層 -->
     <section class="hero">
-        <h1>植牙失敗 即刻救援</h1>
-        <p>你不是第一個，我們也不是第一次</p>
+        <div class="hero-bg">
+            <canvas id="bgCanvas"></canvas>
+        </div>
 
-        <a href="./assessment/" class="btn btn-red">🚨 免費評估</a>
-        <a class="btn btn-green">📲 LINE 諮詢</a>
+        <!-- 🔥 內容層 -->
+        <div class="hero-content">
+            <h1>植牙失敗 即刻救援</h1>
+            <p>你不是第一個，我們也不是第一次</p>
+
+            <a href="./assessment/" class="btn btn-red">🚨 免費評估</a>
+            <a class="btn btn-green">📲 LINE 諮詢</a>
+        </div>
     </section>
 
     <section class="contents">
