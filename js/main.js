@@ -1,27 +1,61 @@
-// ===== Header載入 =====
-const BASE = location.pathname.split('/')[1]
-  ? '/' + location.pathname.split('/')[1] + '/'
-  : '/';
+// ===== 自動設定 BASE（唯一保留）=====
+(function(){
+  const base = document.getElementById('baseHref');
+  if(!base) return;
 
-fetch(BASE + 'components/header.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('header').innerHTML = data;
-    initMenu();
-  });
+  const { hostname, pathname } = location;
 
+  if (hostname.includes('github.io')) {
+    const repo = pathname.split('/')[1];
+    base.setAttribute('href', '/' + repo + '/');
+  } else {
+    base.setAttribute('href', '/');
+  }
+})();
 
+// ===== 共用元件載入（直接用相對路徑）=====
+function loadComponent(path, targetId, callback){
+  fetch(path)
+    .then(res => {
+      if(!res.ok) throw new Error(path + ' not found');
+      return res.text();
+    })
+    .then(data => {
+      const el = document.getElementById(targetId);
+      if(el) el.innerHTML = data;
+      if(callback) callback();
+    })
+    .catch(err => console.error(err));
+}
+
+// ✅ 不再用 BASE
+loadComponent('components/header.html', 'header', initMenu);
+loadComponent('components/floating-cta.html', 'floating-cta');
 
 // ===== 漢堡 =====
 function initMenu(){
-  const hamburger=document.getElementById('hamburger');
-  const menu=document.getElementById('menu');
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
 
-  if(hamburger){
-    hamburger.addEventListener('click',()=>{
-      menu.classList.toggle('active');
+  if(!hamburger || !menu) return;
+
+  // 🔥 強制初始化（關鍵）
+  hamburger.classList.remove('active');
+  menu.classList.remove('active');
+
+  // toggle
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
+
+  // 點 menu 關閉
+  document.querySelectorAll('#menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      menu.classList.remove('active');
     });
-  }
+  });
 }
 
 // ===== 表單送出 → LINE =====
@@ -35,23 +69,16 @@ function submitForm(e){
   },1500);
 }
 
-// ===== 載入 Floating CTA =====
-fetch(BASE + 'components/floating-cta.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('floating-cta').innerHTML = data;
-  });
-
-/* ===== 追蹤（可接 GA） ===== */
+// ===== CTA 追蹤 =====
 function track(type){
   console.log("CTA click:", type);
 }
 
+// ===== 滾動顯示 CTA =====
 window.addEventListener('scroll', () => {
   const el = document.querySelector('.floating-cta');
-  if(window.scrollY > 300){
-    el.style.display = 'flex';
-  } else {
-    el.style.display = 'none';
-  }
+  if(!el) return;
+
+  el.style.display = window.scrollY > 300 ? 'flex' : 'none';
 });
+
