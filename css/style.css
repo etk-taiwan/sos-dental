@@ -47,7 +47,7 @@ a:hover {
 }
 
 .contents {
-  padding: 0 1em 3em 1em;
+  padding: 0 10% 3em 10%;
 }
 
 /* ===== Header ===== */
@@ -335,6 +335,10 @@ nav {
 
 /* ===== 手機、平板 ===== */
 @media(max-width:992px) {
+
+  .contents {
+    padding: 0 1em 3em 1em;
+  }
 
   /* 漢堡出現 */
   .hamburger {
