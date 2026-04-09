@@ -61,6 +61,12 @@ function initMenu(){
   }
 }
 
+document.querySelectorAll('.menu a').forEach(link => {
+  if (location.href.includes(link.getAttribute('href'))) {
+    link.classList.add('active');
+  }
+});
+
 // ===== 表單送出 → LINE =====
 function submitForm(e){
   e.preventDefault();

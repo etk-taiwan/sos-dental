@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="植牙失敗、發炎、掉落？專業醫師救援，立即免費評估">
+  <link rel="icon" href="data:image/svg+xml,
+        <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
+        <text y=%22.9em%22 font-size=%2290%22>🦷</text>
+        </svg>">
   <title>案例中心 | SOS.dental</title>
   <base id="baseHref">
   <link rel="stylesheet" href="../css/style.css">
@@ -48,6 +52,7 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       margin-top: 40px;
+      cursor: ew-resize;
     }
 
     /* ===== Slider ===== */
@@ -104,6 +109,7 @@
       height: 100%;
       background: linear-gradient(#C3A768, #E5D2A3);
       transform: translateX(-50%);
+      box-shadow: 0 0 8px rgba(195, 167, 104, 0.8);
     }
 
     /* 👉 中間圓形（高級感） */
@@ -181,120 +187,57 @@
 
     </div>
 
+    <!-- CTA -->
+    <section class="cta">
+      <h2>你的案例也可以成功</h2>
+      <a href="/assessment/" class="btn btn-red">立即評估</a>
+    </section>
+
   </section>
 
-  <!-- CTA -->
-  <section class="cta">
-    <h2>你的案例也可以成功</h2>
-    <a href="/assessment/" class="btn btn-red">立即評估</a>
-  </section>
 
   <!-- 浮動CTA -->
   <div id="floating-cta"></div>
 
   <script>
+    document.querySelectorAll('.slider').forEach(slider => {
 
-    /* ===== 篩選 ===== */
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelector('.active').classList.remove('active');
-        btn.classList.add('active');
+      const handle = slider.querySelector('.handle');
+      const after = slider.querySelector('.after');
 
-        let filter = btn.dataset.filter;
+      let isDown = false;
 
-        document.querySelectorAll('.case').forEach(c => {
-          if (filter === 'all' || c.dataset.category === filter) {
-            c.style.display = 'block';
-          } else {
-            c.style.display = 'none';
-          }
-        });
+      const move = (x) => {
+        const rect = slider.getBoundingClientRect();
+        let pos = x - rect.left;
+
+        pos = Math.max(0, Math.min(pos, rect.width));
+
+        after.style.width = pos + "px";
+        handle.style.left = pos + "px";
+      };
+
+      // 初始
+      after.style.width = "50%";
+      handle.style.left = "50%";
+
+      /* ===== 滑鼠 ===== */
+      slider.addEventListener('mousedown', () => isDown = true);
+      window.addEventListener('mouseup', () => isDown = false);
+
+      window.addEventListener('mousemove', e => {
+        if (isDown) move(e.clientX);
       });
-    });
 
-    /* ===== Slider（支援手機） ===== */
-    document.addEventListener("DOMContentLoaded", () => {
+      /* ===== 手機 ===== */
+      slider.addEventListener('touchstart', () => isDown = true);
+      slider.addEventListener('touchend', () => isDown = false);
 
-      document.querySelectorAll('.slider').forEach(slider => {
-        const handle = slider.querySelector('.handle');
-        const after = slider.querySelector('.after');
-
-        let isDown = false;
-
-        const move = (x) => {
-          let rect = slider.getBoundingClientRect();
-          let pos = x - rect.left;
-          pos = Math.max(0, Math.min(pos, rect.width));
-          after.style.width = pos + "px";
-          handle.style.left = pos + "px";
-        };
-
-        // 初始
-        after.style.width = "50%";
-        handle.style.left = "50%";
-
-        handle.addEventListener('mousedown', () => isDown = true);
-        window.addEventListener('mouseup', () => isDown = false);
-
-        window.addEventListener('mousemove', e => {
-          if (isDown) move(e.clientX);
-        });
-
-        // 手機
-        slider.addEventListener('touchstart', () => isDown = true);
-        slider.addEventListener('touchend', () => isDown = false);
-        slider.addEventListener('touchmove', e => {
-          move(e.touches[0].clientX);
-        });
-
+      slider.addEventListener('touchmove', e => {
+        move(e.touches[0].clientX);
       });
 
     });
-
-    document.addEventListener("DOMContentLoaded", () => {
-
-      document.querySelectorAll('.slider').forEach(slider => {
-        const handle = slider.querySelector('.handle');
-        const after = slider.querySelector('.after');
-
-        let isDown = false;
-
-        const move = (x) => {
-          let rect = slider.getBoundingClientRect();
-          let pos = x - rect.left;
-          pos = Math.max(0, Math.min(pos, rect.width));
-          after.style.width = pos + "px";
-          handle.style.left = pos + "px";
-        };
-
-        handle.addEventListener('mousedown', () => isDown = true);
-        window.addEventListener('mouseup', () => isDown = false);
-
-        window.addEventListener('mousemove', e => {
-          if (isDown) move(e.clientX);
-        });
-
-        /* 手機 */
-        slider.addEventListener('touchmove', e => {
-          move(e.touches[0].clientX);
-        });
-
-      });
-
-    });
-
-    handle.addEventListener('mousedown', () => isDown = true);
-    window.addEventListener('mouseup', () => isDown = false);
-
-    window.addEventListener('mousemove', e => {
-      if (isDown) move(e.clientX);
-    });
-
-    /* 手機 */
-    slider.addEventListener('touchmove', e => {
-      move(e.touches[0].clientX);
-    });
-
   </script>
 
 </body>

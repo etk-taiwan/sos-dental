@@ -85,24 +85,72 @@ nav {
   color: #fff;
   font-weight: bold;
   font-size: 20px;
+  white-space: nowrap;
 }
 
 /* ===== MENU（桌機）===== */
 .menu {
   display: flex;
-  gap: 25px;
+  gap: 0;
   right: 0;
 }
 
 .menu a {
+  white-space: nowrap;
+  position: relative;
+  display: block;
+  padding: 4px 20px;
   color: #fff;
-  font-size: 13px;
   text-decoration: none;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
+/* ===== 滑過效果（桌機） ===== */
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  bottom: -4px;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, #C3A768, #E5D2A3);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.menu a:hover::after {
+  width: calc(100% - 40px);
+}
+
+/* ===== Hover 背景光感 ===== */
 .menu a:hover {
-  opacity: 0.7;
+  background: rgba(195, 167, 104, 0.08);
+}
+
+/* ===== 手機點擊效果（重點🔥） ===== */
+.menu a:active {
+  background: rgba(195, 167, 104, 0.2);
+  transform: scale(0.97);
+}
+
+/* ===== 點擊瞬間金色閃光 ===== */
+.menu a:active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(229, 210, 163, 0.4) 0%, transparent 70%);
+  animation: clickFlash 0.4s ease;
+}
+
+/* ===== 動畫 ===== */
+@keyframes clickFlash {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 /* ===== 漢堡 ===== */
@@ -228,7 +276,6 @@ nav {
 
 .text-center {
   text-align: center;
-  padding: 20px;
 }
 
 /* ===== Buttons ===== */
@@ -249,6 +296,20 @@ nav {
 .btn-gold {
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
   color: #000;
+}
+
+/* ===== flex ===== */
+.d-flex-center {
+  display: flex !important;
+  justify-content: center;
+}
+
+.flex-rwd {
+  flex-direction: row;
+}
+
+.flex-rwd div {
+  padding: 20px;
 }
 
 /* ===== Card ===== */
@@ -297,40 +358,103 @@ nav {
   height: 400px;
 }
 
-/* ===== Floating CTA ===== */
+/* ===== 浮動按鈕容器 ===== */
 .floating-cta {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 16px;
+  bottom: 100px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  z-index: var(--z-cta);
-
+  z-index: 999;
 }
 
-.floating-cta a {
-  width: 52px;
-  height: 52px;
+/* ===== 按鈕共用 ===== */
+.floating-btn {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.cta {
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: 60px;
+.floating-btn span {
+  position: absolute;
+  right: 70px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  opacity: 0;
+  transition: 0.2s;
 }
 
-.cta-line {
-  background: var(--success);
+.floating-btn:hover span {
+  opacity: 1;
 }
 
-.cta-phone {
-  background: var(--danger);
+/* ===== LINE ===== */
+.btn-line {
+  background: #06C755;
+  animation: pulseLine 2s infinite;
+}
+
+@keyframes pulseLine {
+  0% {
+    box-shadow: 0 0 0 0 rgba(6, 199, 85, 0.6);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(6, 199, 85, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(6, 199, 85, 0);
+  }
+}
+
+/* ===== 電話 ===== */
+.btn-call {
+  background: #E53935;
+  font-size: x-large;
+}
+
+/* ===== hover（桌機） ===== */
+.floating-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== 點擊（手機） ===== */
+.floating-btn:active {
+  transform: scale(0.95);
+}
+
+/* ===== 光暈效果 ===== */
+.floating-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.floating-btn:hover::after {
+  opacity: 1;
+}
+
+/* ===== icon ===== */
+.floating-btn i {
+  font-size: 24px;
 }
 
 /* ===== 手機、平板 ===== */
@@ -338,6 +462,18 @@ nav {
 
   .contents {
     padding: 0 1em 3em 1em;
+  }
+
+  .flex-rwd {
+    flex-direction: column;
+  }
+
+  .flex-rwd div {
+    padding: 5px 20px;
+  }
+
+  .flex-rwd div:first-child {
+    padding: 15px 20px 5px 20px;
   }
 
   /* 漢堡出現 */
@@ -360,6 +496,11 @@ nav {
 
     transition: right 0.3s ease;
     z-index: 9999;
+  }
+
+  .menu a {
+    padding: 14px 20px;
+    font-size: 1.2em;
   }
 
   /* 開啟 */
