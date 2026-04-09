@@ -67,6 +67,10 @@
     }
 
     .after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
       width: 50%;
       overflow: hidden;
     }
@@ -170,31 +174,49 @@
     });
 
     /* ===== Slider（支援手機） ===== */
-    document.querySelectorAll('.slider').forEach(slider => {
-      const handle = slider.querySelector('.handle');
-      const after = slider.querySelector('.after');
+    document.addEventListener("DOMContentLoaded", () => {
 
-      let isDown = false;
+      document.querySelectorAll('.slider').forEach(slider => {
+        const handle = slider.querySelector('.handle');
+        const after = slider.querySelector('.after');
 
-      const move = (x) => {
-        let rect = slider.getBoundingClientRect();
-        let pos = x - rect.left;
-        pos = Math.max(0, Math.min(pos, rect.width));
-        after.style.width = pos + "px";
-        handle.style.left = pos + "px";
-      };
+        let isDown = false;
 
-      handle.addEventListener('mousedown', () => isDown = true);
-      window.addEventListener('mouseup', () => isDown = false);
+        const move = (x) => {
+          let rect = slider.getBoundingClientRect();
+          let pos = x - rect.left;
+          pos = Math.max(0, Math.min(pos, rect.width));
+          after.style.width = pos + "px";
+          handle.style.left = pos + "px";
+        };
 
-      window.addEventListener('mousemove', e => {
-        if (isDown) move(e.clientX);
+        handle.addEventListener('mousedown', () => isDown = true);
+        window.addEventListener('mouseup', () => isDown = false);
+
+        window.addEventListener('mousemove', e => {
+          if (isDown) move(e.clientX);
+        });
+
+        /* 手機 */
+        slider.addEventListener('touchmove', e => {
+          move(e.touches[0].clientX);
+        });
+
       });
 
-      /* 手機 */
-      slider.addEventListener('touchmove', e => {
-        move(e.touches[0].clientX);
-      });
+    });
+
+    handle.addEventListener('mousedown', () => isDown = true);
+    window.addEventListener('mouseup', () => isDown = false);
+
+    window.addEventListener('mousemove', e => {
+      if (isDown) move(e.clientX);
+    });
+
+    /* 手機 */
+    slider.addEventListener('touchmove', e => {
+      move(e.touches[0].clientX);
+    });
     });
 
   </script>
