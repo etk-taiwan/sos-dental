@@ -203,12 +203,14 @@ nav {
 }
 
 .hero-rescue {
-  padding: 120px 20px;
+  position: relative;
+  padding: 140px 20px;
   text-align: center;
-
+  z-index: 1;
+  overflow: hidden;
   background:
-    linear-gradient(rgba(12, 30, 51, .85), rgba(12, 30, 51, .95)),
-    url('https://images.unsplash.com/photo-1588776814546-ec7e6b0d7b03?q=80&w=1920') center/cover;
+    linear-gradient(rgba(7, 35, 57, .92), rgba(7, 35, 57, .75)),
+    url('../images/hero-bg-rescue.png') top/cover no-repeat;
 }
 
 .hero-rescue h1 {
