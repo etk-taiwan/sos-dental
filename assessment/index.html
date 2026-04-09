@@ -267,6 +267,10 @@
       const contact = formData.get('contact');
 
       // 驗證
+      // 防機器人
+      const botcheck = formData.get('website');
+      if (botcheck) return;
+
       if (!name || !contact) {
         alert("請填寫姓名與聯絡方式");
         return;
