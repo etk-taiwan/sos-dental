@@ -215,6 +215,20 @@ nav {
   font-size: 42px;
 }
 
+/* ===== text ===== */
+.text-gold {
+  color: #C3A768;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
+  padding: 20px;
+}
+
 /* ===== Buttons ===== */
 .btn {
   padding: 12px 24px;

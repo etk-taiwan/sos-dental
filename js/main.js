@@ -68,7 +68,7 @@ function submitForm(e){
   alert("已收到資料，將立即為您安排");
 
   setTimeout(()=>{
-    window.location.href="https://line.me/R/ti/p/@你的ID";
+    window.location.href="https://line.me/R/ti/p/@205rzchp";
   },1500);
 }
 
