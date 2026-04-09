@@ -73,16 +73,55 @@
       height: 100%;
       width: 50%;
       overflow: hidden;
+      z-index: 2;
+    }
+
+    .after img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .handle {
       position: absolute;
       top: 0;
       left: 50%;
+      width: 30px;
+      /* 可拖區 */
+      height: 100%;
+      transform: translateX(-50%);
+      cursor: ew-resize;
+      z-index: 3;
+    }
+
+    /* 👉 中間那條金色線 */
+    .handle::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
       width: 3px;
       height: 100%;
+      background: linear-gradient(#C3A768, #E5D2A3);
+      transform: translateX(-50%);
+    }
+
+    /* 👉 中間圓形（高級感） */
+    .handle::after {
+      content: "⇆";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       background: #C3A768;
-      cursor: ew-resize;
+      color: #000;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
     }
 
     /* 標題 */
@@ -190,6 +229,44 @@
           handle.style.left = pos + "px";
         };
 
+        // 初始
+        after.style.width = "50%";
+        handle.style.left = "50%";
+
+        handle.addEventListener('mousedown', () => isDown = true);
+        window.addEventListener('mouseup', () => isDown = false);
+
+        window.addEventListener('mousemove', e => {
+          if (isDown) move(e.clientX);
+        });
+
+        // 手機
+        slider.addEventListener('touchstart', () => isDown = true);
+        slider.addEventListener('touchend', () => isDown = false);
+        slider.addEventListener('touchmove', e => {
+          move(e.touches[0].clientX);
+        });
+
+      });
+
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      document.querySelectorAll('.slider').forEach(slider => {
+        const handle = slider.querySelector('.handle');
+        const after = slider.querySelector('.after');
+
+        let isDown = false;
+
+        const move = (x) => {
+          let rect = slider.getBoundingClientRect();
+          let pos = x - rect.left;
+          pos = Math.max(0, Math.min(pos, rect.width));
+          after.style.width = pos + "px";
+          handle.style.left = pos + "px";
+        };
+
         handle.addEventListener('mousedown', () => isDown = true);
         window.addEventListener('mouseup', () => isDown = false);
 
@@ -216,7 +293,6 @@
     /* 手機 */
     slider.addEventListener('touchmove', e => {
       move(e.touches[0].clientX);
-    });
     });
 
   </script>
