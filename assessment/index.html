@@ -223,7 +223,9 @@
 
     const steps = document.querySelectorAll(".form-step");
     const progressSteps = document.querySelectorAll(".progress .step");
-
+    function getBase64Size(base64) {
+      return Math.ceil((base64.length * 3) / 4);
+    }
     function showStep(index) {
       steps.forEach((step, i) => {
         step.classList.toggle("active", i === index);
@@ -241,9 +243,7 @@
         // 👉 如果是 Step2 才檢查
         if (currentStep === 1) {
 
-          function getBase64Size(base64) {
-            return Math.ceil((base64.length * 3) / 4);
-          }
+
 
           let totalSize = compressedArray.reduce(
             (sum, img) => sum + getBase64Size(img), 0
@@ -464,18 +464,16 @@
         return;
       }
 
-      for (let file of files) {
-        const compressed = await compressImageSmart(file);
+      for (let img of compressedArray) {
 
-        // 最後防呆（真的壓不下才擋）
-        if (compressed.length > 50000) {
+        if (getBase64Size(img) > 50000) {
           alert("圖片仍過大，請換一張圖片");
           return;
         }
-        images.push(compressed);
-        imageHTML += `<img src="${compressed}" style="max-width:300px;"><br/>`;
-      }
 
+        images.push(img);
+        imageHTML += `<img src="${img}" style="max-width:300px;"><br/>`;
+      }
       console.log({ name, age, symptom, contact, images });
 
       // 發送
@@ -514,7 +512,28 @@
         reader.readAsDataURL(file);
       });
     }
+    document.addEventListener("focusout", () => {
+      setTimeout(() => window.scrollTo(0, 0), 100);
+    });
+    // iPhone 修正 zoom + scroll 卡住
+    function fixIOSZoom() {
+      setTimeout(() => {
+        document.body.style.zoom = "1";
+        document.documentElement.scrollTop = 0;
+        window.scrollTo(0, 0);
+      }, 100);
+    }
+    document.addEventListener("focusin", () => {
+      document.body.style.position = "relative";
+    });
 
+    document.addEventListener("focusout", () => {
+      setTimeout(() => {
+        document.body.style.position = "";
+        window.scrollTo(0, 0);
+      }, 100);
+    });
+    document.addEventListener("focusout", fixIOSZoom);
   </script>
 
 </body>
