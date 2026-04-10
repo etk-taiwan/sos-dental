@@ -189,8 +189,8 @@
           <option>疼痛</option>
         </select>
 
-        <input type="file" id="upload" multiple>
-        <p class="upload-tip">⚠️ 最多上傳 2 個檔案（非必填，建議透過LINE提供更清楚）</p>
+        <input type="file" id="upload" multiple accept="image/*">
+        <p class="upload-tip">⚠️ 最多上傳 2 個圖片（非必填，建議透過LINE提供更清楚）</p>
         <div class="preview"></div>
 
         <button type="button" class="btn next">下一步</button>
@@ -318,9 +318,15 @@
 
     input.addEventListener('change', async function () {
 
-      const newFiles = Array.from(this.files);
-      let combined = [...filesArray, ...newFiles];
 
+      // ⭐ 擋 PDF
+      const newFiles = Array.from(this.files);
+      const validFiles = newFiles.filter(f => f.type.startsWith('image/'));
+      if (validFiles.length !== newFiles.length) {
+        alert("只支援圖片（JPG / PNG），不支援 PDF");
+      }
+
+      let combined = [...filesArray, ...validFiles];
       if (combined.length > 2) {
         alert("最多只能上傳 2 個檔案");
         combined = combined.slice(0, 2);
