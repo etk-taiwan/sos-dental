@@ -505,3 +505,112 @@ nav {
     overflow: hidden;
   }
 }
+
+@media (max-width:390px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+    min-width: 300px;
+  }
+
+  /* ===== Header ===== */
+  nav {
+    height: 60px;
+    padding: 0 15px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  /* ===== 內容區 ===== */
+  .contents {
+    padding: 0 15px 3em 15px !important;
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    overflow: hidden;
+    padding: 100px 15px;
+  }
+
+  .hero .d-flex-center,
+  .hero .flex-rwd {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero .btn {
+    width: 80%;
+    text-align: center;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  /* 防止按鈕亂飄 */
+  .hero button {
+    position: relative !important;
+    transform: none !important;
+    margin: 0;
+  }
+
+  /* ===== 文字 ===== */
+  h1 {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ===== 按鈕（全域） ===== */
+  .btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  /* ===== 卡片 ===== */
+  .card {
+    padding: 18px;
+  }
+
+  /* ===== Grid ===== */
+  .grid {
+    gap: 15px;
+  }
+
+  /* ===== 流程 ===== */
+  .flow {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* ===== 影片 ===== */
+  .video iframe {
+    height: 220px;
+  }
+
+  /* ===== 浮動按鈕 ===== */
+  .floating-cta {
+    right: 10px;
+    bottom: 80px;
+  }
+
+  .floating-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .floating-btn i {
+    font-size: 20px;
+  }
+
+}
