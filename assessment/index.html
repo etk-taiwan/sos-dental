@@ -52,6 +52,21 @@
       display: none;
     }
 
+    .prev {
+      margin-right: 10px;
+      margin-bottom: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .prev-row {
+      margin-bottom: 12px;
+    }
+
+    .prev-row .prev {
+      width: auto;
+    }
+
     .circle {
       width: 25px;
       height: 25px;
@@ -67,6 +82,10 @@
     /* ===== 表單 ===== */
     .form-step {
       display: none;
+    }
+
+    .form-step .btn {
+      margin-right: 10px;
     }
 
     .form-step.active {
@@ -85,17 +104,40 @@
     }
 
     /* ===== 圖片預覽 ===== */
+    .upload-tip {
+      color: #ff4d4f;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
     .preview {
       display: flex;
       gap: 10px;
-      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .preview-item {
+      position: relative;
     }
 
     .preview img {
       width: 80px;
       height: 80px;
       object-fit: cover;
-      border-radius: 6px;
+      border-radius: 8px;
+    }
+
+    .remove-btn {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: #ff4d4f;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -148,7 +190,7 @@
         </select>
 
         <input type="file" id="upload" multiple>
-
+        <p class="upload-tip">⚠️ 最多上傳 2 個檔案（非必填，建議透過LINE提供更清楚）</p>
         <div class="preview"></div>
 
         <button type="button" class="btn next">下一步</button>
@@ -159,7 +201,7 @@
         <input name="contact" placeholder="聯絡方式（電話或LINE）">
 
         <div class="cta">
-          <button class="btn btn-red text-white">提交評估</button>
+          <a href="#" id="submitBtn" class="btn btn-red">提交評估</a>
           <a href="https://line.me/R/ti/p/@205rzchp" class="btn btn-green">LINE 諮詢</a>
         </div>
       </div>
@@ -173,50 +215,175 @@
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
   <script>
-    // 🔥 初始化
+    // 初始化
     emailjs.init("_-Y2LMERWucebZccJ");
 
     /* ===== Step 控制 ===== */
-    const steps = document.querySelectorAll('.form-step');
-    const progress = document.querySelectorAll('.step');
-    let current = 0;
+    let currentStep = 0;
 
-    document.querySelectorAll('.next').forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (current < steps.length - 1) {
-          steps[current].classList.remove('active');
-          progress[current].classList.remove('active');
+    const steps = document.querySelectorAll(".form-step");
+    const progressSteps = document.querySelectorAll(".progress .step");
 
-          current++;
+    function showStep(index) {
+      steps.forEach((step, i) => {
+        step.classList.toggle("active", i === index);
+      });
 
-          steps[current].classList.add('active');
-          progress[current].classList.add('active');
+      progressSteps.forEach((step, i) => {
+        step.classList.toggle("active", i <= index);
+      });
+    }
+
+    /* 下一步 */
+    document.querySelectorAll(".next").forEach(btn => {
+      btn.addEventListener("click", async () => {
+
+        // 👉 如果是 Step2 才檢查
+        if (currentStep === 1) {
+
+          function getBase64Size(base64) {
+            return Math.ceil((base64.length * 3) / 4);
+          }
+
+          let totalSize = compressedArray.reduce(
+            (sum, img) => sum + getBase64Size(img), 0
+          );
+
+          console.log("總大小:", totalSize);
+          if (totalSize > 50000) {
+            alert("圖片總大小超過限制，請刪除或更換圖片");
+            return;
+          }
+        }
+        // ✅ 正常進下一步
+        if (currentStep < steps.length - 1) {
+          currentStep++;
+          showStep(currentStep);
+        }
+
+      });
+    });
+
+    /* 上一步 */
+    function addPrevButtons() {
+      steps.forEach((step, index) => {
+        if (index === 0) return;
+
+        const prevBtn = document.createElement("button");
+        prevBtn.type = "button";
+        prevBtn.className = "btn prev";
+        prevBtn.innerText = "上一步";
+
+        prevBtn.addEventListener("click", () => {
+          if (currentStep > 0) {
+            currentStep--;
+            showStep(currentStep);
+          }
+        });
+
+        const nextBtn = step.querySelector(".next");
+        const submitBtn = step.querySelector(".btn-red");
+
+        if (nextBtn) {
+          // Step 2
+          nextBtn.parentNode.insertBefore(prevBtn, nextBtn);
+
+        } else if (submitBtn) {
+          // Step 3（分開一排）
+
+          const wrapper = document.createElement("div");
+          wrapper.className = "prev-row";
+
+          wrapper.appendChild(prevBtn);
+
+          step.insertBefore(wrapper, submitBtn.parentNode);
         }
       });
+    }
+
+    /* 初始化 */
+    const tip = document.querySelector('.upload-tip');
+    document.addEventListener("DOMContentLoaded", () => {
+      tip.style.display = "block";
+      showStep(currentStep);
+      addPrevButtons();
     });
 
     /* ===== 圖片預覽 ===== */
-    document.getElementById('upload').addEventListener('change', function () {
-      const preview = document.querySelector('.preview');
-      preview.innerHTML = '';
+    let filesArray = [];
+    let compressedArray = [];
 
-      [...this.files].forEach(file => {
-        const reader = new FileReader();
-        reader.onload = e => {
-          const img = document.createElement('img');
-          img.src = e.target.result;
-          preview.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-      });
+    const input = document.getElementById('upload');
+    const preview = document.querySelector('.preview');
+
+    input.addEventListener('change', async function () {
+
+      const newFiles = Array.from(this.files);
+      let combined = [...filesArray, ...newFiles];
+
+      if (combined.length > 2) {
+        alert("最多只能上傳 2 個檔案");
+        combined = combined.slice(0, 2);
+      }
+
+      filesArray = combined;
+
+      // 這裡直接壓縮一次
+      compressedArray = [];
+
+      for (let file of filesArray) {
+        const compressed = await compressImageSmart(file, 18000);
+        compressedArray.push(compressed);
+      }
+
+      this.value = "";
+
+      renderPreview();
     });
 
+    function renderPreview() {
+      preview.innerHTML = '';
+
+      filesArray.forEach((file, index) => {
+
+        const reader = new FileReader();
+
+        reader.onload = e => {
+          const wrapper = document.createElement('div');
+          wrapper.className = "preview-item";
+
+          wrapper.innerHTML = `
+        <img src="${e.target.result}">
+        <button type="button" class="remove-btn">✕</button>
+      `;
+
+          wrapper.querySelector(".remove-btn").addEventListener("click", () => {
+            filesArray.splice(index, 1);
+            compressedArray.splice(index, 1);
+
+            input.value = "";
+            renderPreview();
+          });
+
+          preview.appendChild(wrapper);
+        };
+
+        reader.readAsDataURL(file);
+      });
+
+      // 🔥 這段加在最後
+      if (filesArray.length > 0) {
+        tip.style.display = "none";
+      } else {
+        tip.style.display = "block";
+      }
+    }
     /* ===== 圖片壓縮 ===== */
     async function compressImageSmart(file, maxSize = 50000) {
-      let quality = 0.7;
+      let quality = 0.6;
       let base64 = await compress(file, quality);
 
-      // 🔥 不斷壓縮直到符合大小
+      // 不斷壓縮直到符合大小
       while (base64.length > maxSize && quality > 0.1) {
         quality -= 0.1;
         base64 = await compress(file, quality);
@@ -258,8 +425,8 @@
       });
     }
 
-    /* ===== 🔥 表單送出（EmailJS版本） ===== */
-    document.getElementById('form').addEventListener('submit', async (e) => {
+    /* ===== 表單送出（EmailJS版本） ===== */
+    document.getElementById("submitBtn").addEventListener('click', async (e) => {
       e.preventDefault();
 
       const form = document.getElementById('form');
@@ -281,7 +448,7 @@
       }
 
 
-      const files = document.getElementById('upload').files;
+      const files = filesArray;
       let images = [];
       let imageHTML = "";
 
@@ -293,12 +460,12 @@
       for (let file of files) {
         const compressed = await compressImageSmart(file);
 
-        // 🔥 最後防呆（真的壓不下才擋）
+        // 最後防呆（真的壓不下才擋）
         if (compressed.length > 50000) {
           alert("圖片仍過大，請換一張圖片");
           return;
         }
-
+        images.push(compressed);
         imageHTML += `<img src="${compressed}" style="max-width:300px;"><br/>`;
       }
 
@@ -331,7 +498,7 @@
 
     });
 
-    // 🔥 Base64轉換
+    // Base64轉換
     function toBase64(file) {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();

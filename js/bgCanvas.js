@@ -79,7 +79,7 @@ function drawWave() {
 
   for (let x = 0; x < canvas.width; x++) {
     let y =
-    canvas.height * 0.8 +   // 🔥 底部 80%
+    canvas.height * 0.8 + 
     Math.sin(x * 0.01 + time) * 15;
 
     ctx.lineTo(x, y);

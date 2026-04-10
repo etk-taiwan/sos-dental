@@ -127,7 +127,7 @@ nav {
   background: rgba(195, 167, 104, 0.08);
 }
 
-/* ===== 手機點擊效果（重點🔥） ===== */
+/* ===== 手機點擊效果 ===== */
 .menu a:active {
   background: rgba(195, 167, 104, 0.2);
   transform: scale(0.97);
@@ -185,7 +185,7 @@ nav {
   bottom: 0;
 }
 
-/* 🔥 變 X（關鍵） */
+/* 變 X */
 .hamburger.active span:nth-child(1) {
   top: 50%;
   transform: translateY(-50%) rotate(45deg);

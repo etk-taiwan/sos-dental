@@ -51,7 +51,7 @@ function initMenu(){
       menu.classList.toggle('active');
     });
 
-    // 🔥 點 menu 自動關閉
+    // 點 menu 自動關閉
     document.querySelectorAll('#menu a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
