@@ -176,7 +176,7 @@
       <!-- Step 1 -->
       <div class="form-step active">
         <input name="name" placeholder="姓名">
-        <input name="age" placeholder="年齡">
+        <input type="number" inputmode="numeric" name="age" placeholder="年齡">
         <button type="button" class="btn next">下一步</button>
       </div>
 
@@ -512,28 +512,29 @@
         reader.readAsDataURL(file);
       });
     }
-    document.addEventListener("focusout", () => {
-      setTimeout(() => window.scrollTo(0, 0), 100);
-    });
+
     // iPhone 修正 zoom + scroll 卡住
-    function fixIOSZoom() {
+    function scrollToInput(el) {
       setTimeout(() => {
-        document.body.style.zoom = "1";
-        document.documentElement.scrollTop = 0;
-        window.scrollTo(0, 0);
-      }, 100);
+        el.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }, 300);
+
+      // iOS 補強
+      let count = 0;
+      let timer = setInterval(() => {
+        el.scrollIntoView({ block: 'center' });
+        count++;
+        if (count > 3) clearInterval(timer);
+      }, 300);
     }
-    document.addEventListener("focusin", () => {
-      document.body.style.position = "relative";
+
+    document.querySelectorAll('input, select').forEach(el => {
+      el.addEventListener('focus', () => scrollToInput(el));
     });
 
-    document.addEventListener("focusout", () => {
-      setTimeout(() => {
-        document.body.style.position = "";
-        window.scrollTo(0, 0);
-      }, 100);
-    });
-    document.addEventListener("focusout", fixIOSZoom);
   </script>
 
 </body>

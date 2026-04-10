@@ -25,7 +25,9 @@ body {
 
 body,
 html {
+  height: auto;
   overflow-x: visible;
+  overflow-y: auto;
 }
 
 input,
