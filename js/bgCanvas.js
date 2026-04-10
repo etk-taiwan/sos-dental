@@ -2,8 +2,8 @@ const canvas = document.getElementById("bgCanvas");
 const ctx = canvas.getContext("2d");
 
 let particles = [];
-const PARTICLE_COUNT = 15;
-const CONNECT_DISTANCE = 120;
+const PARTICLE_COUNT = 35;
+const CONNECT_DISTANCE = 150;
 
 function resizeCanvas() {
   const hero = document.querySelector(".hero");

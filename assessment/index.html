@@ -547,14 +547,13 @@
       showStep(1);
 
       // 👉 提示
-      alert("⚠️ 圖片太大，請刪除圖片再重新送出");
+      alert("⚠️ 圖片太大，請刪除或更換圖片");
 
-      // 👉 清空圖片（重要）
-      filesArray = [];
-      compressedArray = [];
+      // ❗❗ 不要清空圖片 ❗❗
+      // 保留 filesArray / compressedArray
 
-      document.getElementById('upload').value = '';
-      document.querySelector('.preview').innerHTML = '';
+      // 👉 重新 render（確保畫面還在）
+      renderPreview();
     }
 
     document.querySelectorAll('input, select').forEach(el => {
