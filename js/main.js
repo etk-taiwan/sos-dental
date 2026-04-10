@@ -78,6 +78,10 @@ function submitForm(e){
   },1500);
 }
 
+document.addEventListener("focusout", () => {
+  setTimeout(() => window.scrollTo(0, 0), 100);
+});
+
 // ===== CTA 追蹤 =====
 function track(type){
   console.log("CTA click:", type);
