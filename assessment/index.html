@@ -21,7 +21,7 @@
       text-align: center;
 
       background:
-        linear-gradient(rgba(12, 30, 51, .85), rgba(12, 30, 51, .95)),
+        linear-gradient(rgba(12, 30, 51, .75), rgba(12, 30, 51, .85)),
         url('../images/hero-bg-ass.png') center/cover;
     }
 
@@ -332,7 +332,7 @@
       compressedArray = [];
 
       for (let file of filesArray) {
-        const compressed = await compressImageSmart(file, 18000);
+        const compressed = await compressImageSmart(file, 12000);
         compressedArray.push(compressed);
       }
 
@@ -498,7 +498,17 @@
         })
         .catch((err) => {
           console.error("錯誤👇", err);
-          alert("❌ 發送失敗：" + JSON.stringify(err));
+
+          // ⭐ 判斷 413（EmailJS 會藏在 err.text 或 err.status）
+          if (
+            err.status === 413 ||
+            (err.text && err.text.includes("413"))
+          ) {
+            handle413();
+            return;
+          }
+
+          alert("❌ 發送失敗，請稍後再試");
         });
 
     });
@@ -529,6 +539,22 @@
         count++;
         if (count > 3) clearInterval(timer);
       }, 300);
+    }
+
+    function handle413() {
+      // 👉 回 Step2
+      currentStep = 1;
+      showStep(1);
+
+      // 👉 提示
+      alert("⚠️ 圖片太大，請刪除圖片再重新送出");
+
+      // 👉 清空圖片（重要）
+      filesArray = [];
+      compressedArray = [];
+
+      document.getElementById('upload').value = '';
+      document.querySelector('.preview').innerHTML = '';
     }
 
     document.querySelectorAll('input, select').forEach(el => {

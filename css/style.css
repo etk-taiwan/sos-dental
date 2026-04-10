@@ -258,21 +258,6 @@ nav {
   z-index: 2;
 }
 
-.hero-rescue {
-  position: relative;
-  padding: 140px 20px;
-  text-align: center;
-  z-index: 1;
-  overflow: hidden;
-  background:
-    linear-gradient(rgba(7, 35, 57, .92), rgba(7, 35, 57, .75)),
-    url('../images/hero-bg-rescue.png') top/cover no-repeat;
-}
-
-.hero-rescue h1 {
-  font-size: 42px;
-}
-
 /* ===== text ===== */
 .text-gold {
   color: #C3A768;
