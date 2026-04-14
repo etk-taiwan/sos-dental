@@ -258,6 +258,17 @@ nav {
   z-index: 2;
 }
 
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.img-rwd {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* ===== text ===== */
 .text-gold {
   color: #C3A768;
