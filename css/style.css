@@ -30,6 +30,14 @@ html {
   overflow-y: auto;
 }
 
+.for-mobile {
+  display: none;
+}
+
+.for-pc {
+  display: block;
+}
+
 input,
 select,
 textarea {
@@ -465,6 +473,14 @@ nav {
 /* ===== 手機、平板 ===== */
 @media(max-width:992px) {
 
+  .for-mobile {
+    display: block;
+  }
+
+  .for-pc {
+    display: none;
+  }
+
   .contents {
     padding: 0 1em 3em 1em;
   }
@@ -524,6 +540,14 @@ nav {
   body {
     overflow-x: hidden;
     min-width: 300px;
+  }
+
+  .for-mobile {
+    display: block;
+  }
+
+  .for-pc {
+    display: none;
   }
 
   /* ===== Header ===== */
