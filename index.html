@@ -17,13 +17,183 @@
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/main.js"></script>
     <script defer src="js/bgCanvas.js"></script>
+    <style>
+        /* ===== 影片區塊 ===== */
+        .hero-video {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 文字層 */
+        .video-overlay {
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            width: 90%;
+            line-height: 1.2;
+        }
+
+        .video-overlay2 {
+            position: absolute;
+            bottom: 1%;
+            left: 70%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            width: 90%;
+            line-height: 1.5;
+        }
+
+        .hero-video::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            /* 微暗遮罩 */
+            top: 0;
+            left: 0;
+        }
+
+        /* 金色漸層文字 */
+        .video-overlay .t1,
+        .video-overlay .t2,
+        .video-overlay .t3,
+        .video-overlay .t4,
+        .video-overlay2 {
+            font-weight: bold;
+            background: linear-gradient(90deg, #FFD700, #FFF3B0, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6)) drop-shadow(0 6px 16px rgba(0, 0, 0, 0.5));
+        }
+
+        .t1 {
+            font-size: 2.5rem;
+        }
+
+        .t2 {
+            font-size: 2rem;
+        }
+
+        .t3 {
+            font-size: 1.5rem;
+        }
+
+        .t4 {
+            font-size: 1rem;
+        }
+
+        .hr-glod {
+            width: 400px;
+            height: 1px;
+            display: block;
+            margin: 4px auto;
+        }
+
+        /* 手機版 */
+        @media (max-width: 992px) {
+            .hero-video {
+                position: relative;
+                width: 100%;
+                height: 95vh;
+                overflow: hidden;
+                background: #000;
+            }
+
+            .video-overlay {
+                position: absolute;
+                top: 25%;
+                left: 30%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                z-index: 2;
+                width: 90%;
+                line-height: 1.2;
+            }
+
+            .video-overlay2 {
+                position: absolute;
+                bottom: 1%;
+                left: 45%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                z-index: 2;
+                width: 90%;
+                line-height: 1.5;
+            }
+
+            .t1 {
+                font-size: 2rem;
+            }
+
+            .t2 {
+                font-size: 1.5rem;
+            }
+
+            .t3 {
+                font-size: 1rem;
+            }
+
+            .t4 {
+                font-size: 0.75rem;
+            }
+
+            .hr-glod {
+                width: 300px;
+                height: 1px;
+                display: block;
+                margin: 4px auto;
+            }
+        }
+
+        @media (max-width:390px) {
+            .video-overlay {
+                top: 22%;
+                left: 40%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <div id="header"></div>
-    <section class="pt-5">
-        <img class="img-rwd" src="./images/index-implant.jpg" alt="植牙救援">
+
+    <section class="hero-video">
+        <video class="video-bg" autoplay muted loop playsinline>
+            <source src="./images/dental_implant.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-overlay">
+            <div class="t1">植牙失敗，<span class="t2">不是終點</span></div>
+            <div class="t2">這裡，是<span class="t1">重生</span>的開始</div>
+            <img class="hr-glod" src="./images/hr-glod.png">
+            <div class="t4">IMPLANT CRISIS RESCUE TEAM</div>
+            <img class="hr-glod" src="./images/hr-glod.png">
+            <div class="t3">〘 最後一站 • 最後希望 〙</div>
+        </div>
+        <div class="video-overlay2">
+            <div class="t3">☑ 植牙孤兒,不再流浪</div>
+            <img class="hr-glod" src="./images/hr-glod.png">
+            <div class="t3">&emsp;&emsp;&emsp;&emsp;&emsp;我們專收「別人不敢做的」</div>
+        </div>
     </section>
 
     <!-- 背景層 -->
