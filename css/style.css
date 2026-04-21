@@ -539,7 +539,7 @@ nav {
   html,
   body {
     overflow-x: hidden;
-    min-width: 300px;
+    min-width: 340px;
   }
 
   .for-mobile {
@@ -651,7 +651,7 @@ nav {
 
 }
 
-@media (max-width: 300px) {
+@media (max-width: 340px) {
   body {
     zoom: 0.9;
     /* 或 0.85 */
