@@ -100,17 +100,40 @@
             font-size: 1rem;
         }
 
-        .check-line::before {
-            content: "☑";
-            color: #FFD700;
-            margin-right: 6px;
-        }
-
         .hr-glod {
             width: 400px;
             height: 1px;
             display: block;
             margin: 4px auto;
+        }
+
+        /* 🔥 不用 flex，改 inline 排列 */
+        .check-line {
+            display: inline-block;
+        }
+
+        /* 方塊 */
+        .check-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 6px;
+            vertical-align: middle;
+
+            border: 2px solid #FFD700;
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .check-icon::after {
+            content: "✔";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+            font-size: 16px;
+            color: #FFD700;
+            -webkit-text-fill-color: initial;
         }
 
         /* 手機版 */
@@ -167,6 +190,31 @@
                 display: block;
                 margin: 4px auto;
             }
+
+            /* 方塊 */
+            .check-icon {
+                display: inline-block;
+                width: 22px;
+                height: 22px;
+                margin-right: 6px;
+                vertical-align: middle;
+
+                border: 2px solid #FFD700;
+                border-radius: 3px;
+                position: relative;
+            }
+
+            .check-icon::after {
+                content: "✔";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -55%);
+                font-size: 12px;
+                color: #FFD700;
+                -webkit-text-fill-color: initial;
+            }
+
         }
 
         @media (max-width:390px) {
@@ -196,7 +244,10 @@
             <div class="t3">〘 最後一站 • 最後希望 〙</div>
         </div>
         <div class="video-overlay2">
-            <div class="t3 check-line">植牙孤兒,不再流浪</div>
+            <div class="t3 check-line">
+                <span class="check-icon"></span>
+                植牙孤兒,不再流浪
+            </div>
             <img class="hr-glod" src="./images/hr-glod.png">
             <div class="t3">&emsp;&emsp;&emsp;&emsp;&emsp;我們專收「別人不敢做的」</div>
         </div>
