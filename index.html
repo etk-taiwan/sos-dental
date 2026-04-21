@@ -56,8 +56,18 @@
             transform: translate(-50%, -50%);
             text-align: center;
             z-index: 2;
-            width: 90%;
+            width: 400px;
             line-height: 1.5;
+            backdrop-filter: blur(4px);
+            background: rgba(0, 0, 0, 0.2);
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .video-overlay2 .t3:last-child {
+            margin-top: 6px;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         .hero-video::after {
@@ -94,10 +104,16 @@
 
         .t3 {
             font-size: 1.5rem;
+            white-space: nowrap;
         }
 
         .t4 {
             font-size: 1rem;
+        }
+
+        .ep-rwd {
+            width: 100px;
+            display: inline-block;
         }
 
         .hr-glod {
@@ -107,33 +123,64 @@
             margin: 4px auto;
         }
 
-        /* 🔥 不用 flex，改 inline 排列 */
         .check-line {
             display: inline-block;
         }
 
-        /* 方塊 */
-        .check-icon {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            margin-right: 6px;
-            vertical-align: middle;
 
-            border: 2px solid #FFD700;
-            border-radius: 3px;
-            position: relative;
+        /* ===== 文字動畫 ===== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .check-icon::after {
-            content: "✔";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -55%);
-            font-size: 16px;
-            color: #FFD700;
-            -webkit-text-fill-color: #FFD700;
+        /* 分層出現 */
+        .video-overlay .t1 {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        .video-overlay .t2 {
+            animation: fadeUp 0.8s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+
+        .video-overlay .t4,
+        .video-overlay .t3 {
+            animation: fadeUp 0.8s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+
+        @keyframes checkPop {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            60% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .check-icon {
+            animation: checkPop 0.3s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+
+        .check-icon img {
+            width: 24px;
+            height: 24px;
         }
 
         /* 手機版 */
@@ -191,36 +238,21 @@
                 margin: 4px auto;
             }
 
-            /* 方塊 */
-            .check-icon {
-                display: inline-block;
-                width: 22px;
-                height: 22px;
-                margin-right: 6px;
-                vertical-align: middle;
-
-                border: 2px solid #FFD700;
-                border-radius: 3px;
-                position: relative;
+            .check-icon img {
+                width: 20px;
+                height: 20px;
             }
-
-            .check-icon::after {
-                content: "✔";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -55%);
-                font-size: 12px;
-                color: #FFD700;
-                -webkit-text-fill-color: #FFD700;
-            }
-
         }
 
         @media (max-width:390px) {
             .video-overlay {
                 top: 22%;
                 left: 40%;
+            }
+
+            .ep-rwd {
+                width: 94px;
+                display: inline-block;
             }
         }
     </style>
@@ -245,11 +277,11 @@
         </div>
         <div class="video-overlay2">
             <div class="t3 check-line">
-                <span class="check-icon"></span>
+                <span class="check-icon"><img src="./images/checkbox.png"></span>
                 植牙孤兒,不再流浪
             </div>
             <img class="hr-glod" src="./images/hr-glod.png">
-            <div class="t3">&emsp;&emsp;&emsp;&emsp;&emsp;我們專收「別人不敢做的」</div>
+            <div class="t3"><span class="ep-rwd"></span>我們專收「別人不敢做的」</div>
         </div>
     </section>
 

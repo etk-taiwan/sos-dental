@@ -650,3 +650,10 @@ nav {
   }
 
 }
+
+@media (max-width: 300px) {
+  body {
+    zoom: 0.9;
+    /* 或 0.85 */
+  }
+}
