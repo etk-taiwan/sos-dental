@@ -18,31 +18,12 @@
     <script defer src="js/main.js"></script>
     <script defer src="js/bgCanvas.js"></script>
     <style>
-        ul.news {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .news li {
-            position: relative;
-            padding-left: 24px;
-        }
-
-        .news li::before {
-            content: "⏱︎";
-            position: absolute;
-            left: 0;
-            color: #FFD700;
-            font-size: 1em;
-        }
-
-        .news a {
-            color: #FFD700;
-            transition: 0.3s;
-        }
-
-        .news a:hover {
-            color: #a6e9f6;
+        .badge-gold {
+            background: #C3A768;
+            color: #0C1E33;
+            font-weight: 700;
+            padding: 6px 10px;
+            border-radius: 20px;
         }
 
         /* ===== 影片區塊 ===== */
@@ -347,9 +328,24 @@
 
         <section class="container">
             <h2 class="pt-4">最新消息</h2>
-            <ul class="news">
-                <li><a href="https://forms.gle/qTgyuBEiFTnftx2Q9" target="_blank">2026/04/28 《植牙補骨手術減張系統》5天封神課程
-                        報名中......</a></li>
+            <ul class="list-unstyled">
+                <li>
+                    <a href="https://forms.gle/qTgyuBEiFTnftx2Q9" target="_blank"
+                        class="d-flex align-items-start gap-3 text-decoration-none">
+                        <img src="./images/AllonX.png" style="width:100px; flex-shrink:0; border-radius:6px;">
+                        <div class="pl-3">
+                            <div class="text-warning">
+                                2026/04/28<br>
+                                《植牙補骨手術減張系統》5天封神課程 Tension Control System for GBR and Implant Reconstruction
+                                「減張不是技巧,是系統控制」
+                            </div>
+                            <span class="badge badge-gold">
+                                報名中
+                            </span>
+                        </div>
+
+                    </a>
+                </li>
             </ul>
         </section>
 
