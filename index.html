@@ -26,6 +26,23 @@
             border-radius: 20px;
         }
 
+        .text-top-line {
+            position: relative;
+            display: inline-block;
+            padding-top: 6px;
+            margin-top: 4px;
+        }
+
+        .text-top-line::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 2px;
+            background: #C3A768;
+        }
+
         /* ===== 影片區塊 ===== */
         .hero-video {
             position: relative;
@@ -334,14 +351,16 @@
                         class="d-flex align-items-start gap-3 text-decoration-none">
                         <img src="./images/AllonX.png" style="width:100px; flex-shrink:0; border-radius:6px;">
                         <div class="pl-3">
-                            <div class="text-warning">
-                                2026/04/28<br>
+                            <div class="d-flex w-100">
+                                <span class="text-warning">2026/04/28</span>
+                                <span class="badge badge-gold ms-auto">
+                                    報名中
+                                </span>
+                            </div>
+                            <div class="text-warning text-top-line">
                                 《植牙補骨手術減張系統》5天封神課程 Tension Control System for GBR and Implant Reconstruction
                                 「減張不是技巧,是系統控制」
                             </div>
-                            <span class="badge badge-gold">
-                                報名中
-                            </span>
                         </div>
 
                     </a>

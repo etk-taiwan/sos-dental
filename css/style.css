@@ -66,6 +66,10 @@ a:hover {
   padding: 0 10% 3em 10%;
 }
 
+.ms-auto {
+  margin-left: auto;
+}
+
 /* ===== Header ===== */
 header {
   background: rgba(8, 18, 31, 0.65);
