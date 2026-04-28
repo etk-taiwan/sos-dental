@@ -18,6 +18,33 @@
     <script defer src="js/main.js"></script>
     <script defer src="js/bgCanvas.js"></script>
     <style>
+        ul.news {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .news li {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .news li::before {
+            content: "⏱︎";
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+            font-size: 1em;
+        }
+
+        .news a {
+            color: #FFD700;
+            transition: 0.3s;
+        }
+
+        .news a:hover {
+            color: #a6e9f6;
+        }
+
         /* ===== 影片區塊 ===== */
         .hero-video {
             position: relative;
@@ -304,6 +331,7 @@
     </section>
 
     <section class="contents">
+
         <!-- 信任 -->
         <div class="text-gold text-center d-flex-center flex-rwd">
             <div>✔ 已成功救援 300+ 案例</div>
@@ -316,6 +344,15 @@
         <section>
             <img class="img-rwd" src="./images/bn-260403.jpg" alt="種下你的未來">
         </section>
+
+        <section class="container">
+            <h2 class="pt-4">最新消息</h2>
+            <ul class="news">
+                <li><a href="https://forms.gle/qTgyuBEiFTnftx2Q9" target="_blank">2026/04/28 《植牙補骨手術減張系統》5天封神課程
+                        報名中......</a></li>
+            </ul>
+        </section>
+
         <!-- 解決流程 -->
         <section class="container">
             <h2 class="pt-4">救援流程</h2>
